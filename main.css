@@ -1,0 +1,29 @@
+.navbar {
+
+}
+
+#main {
+  display: block;
+  margin: auto;
+  float: none;
+  position: relative;
+  transform: translateY(50%);
+}
+
+#searchbar {
+}
+
+#category {
+  display: inline-block;
+}
+
+#location {
+  display: inline-block;
+}
+
+#eligibility {
+  display: inline-block;
+}
+
+h3 {
+}
