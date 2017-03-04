@@ -61,6 +61,15 @@ class InsidesController < ApplicationController
     end
   end
 
+  def index
+    @insides = Inside.all
+    if params[:search]
+      @insides = Inside.search(params[:search]).order("created_at DESC")
+    else
+      @insides = Inside.all.order("created_at DESC")
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_inside
@@ -71,4 +80,5 @@ class InsidesController < ApplicationController
     def inside_params
       params.require(:inside).permit(:name, :deadline, :category, :location)
     end
+
 end
