@@ -86,9 +86,14 @@
   <div class="container p-t-3">
     <!--side filters-->
     <div class="row">
-      <div class="col-xs-5">
+      <div class="col-xs-3">
         <textarea class="form-control m-b-1" id="exampleTextarea" rows="3" placeholder="Condition"></textarea>
         <input class="form-control mr-sm-2 m-y-1" type="text" placeholder="Search...">
+          <%= form_tag(insides_path, :method => "get", id: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Money" %>
+            <%= submit_tag "Search", :name => nil %>
+          <% end %>
+        </input>
         <div class="dropdown m-y-1">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Category
@@ -108,7 +113,7 @@
 
 
       <!--search results-->
-      <div class="col-xs-7">
+      <div class="col-xs-9">
         <%= link_to 'New Inside', new_inside_path %>
 
         <table class="table">
@@ -118,20 +123,29 @@
               <th>Deadline</th>
               <th>Category</th>
               <th>Department</th>
+              <th>Season</th>
             </tr>
           </thead>
           <tbody>
-
-            <% @insides.each do |inside| %>
+            <% if @insides.blank? %>
               <tr>
-                <td><%= inside.name %></td>
-                <td><%= inside.deadline %></td>
-                <td><%= inside.category %></td>
-                <td><%= inside.department %></td>
-                <td><%= link_to 'Show', inside %></td>
-                <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
-                <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td>
+                There are no opportunities containing the term <%= params[:search] %>.
+                </td>
               </tr>
+            <% else %>
+              <% @insides.each do |inside| %>
+                <tr>
+                  <td><%= inside.name %></td>
+                  <td><%= inside.deadline %></td>
+                  <td><%= inside.category %></td>
+                  <td><%= inside.department %></td>
+                  <td><%= inside.season %></td>
+                  <td><%= link_to 'Show', inside %></td>
+                  <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
+                  <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
             <% end %>
 
           </tbody>
