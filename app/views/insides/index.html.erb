@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Insides</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Deadline</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @insides.each do |inside| %>
+      <tr>
+        <td><%= inside.name %></td>
+        <td><%= inside.deadline %></td>
+        <td><%= inside.description %></td>
+        <td><%= link_to 'Show', inside %></td>
+        <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
+        <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inside', new_inside_path %>

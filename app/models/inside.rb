@@ -1,0 +1,2 @@
+class Inside < ApplicationRecord
+end

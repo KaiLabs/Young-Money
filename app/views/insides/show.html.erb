@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @inside.name %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @inside.deadline %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @inside.description %>
+</p>
+
+<%= link_to 'Edit', edit_inside_path(@inside) %> |
+<%= link_to 'Back', insides_path %>
