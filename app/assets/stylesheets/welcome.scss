@@ -1,0 +1,148 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  margin: auto;
+}
+
+.bar {
+  background-color: black;
+  height: 70px;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px 0px 30px;
+}
+
+h1 {
+  color: white;
+  font-style: normal;
+  font-family: "Bodoni Classic";
+  font-size: 36px;
+  font-weight: normal;
+}
+
+h2 {
+  color: white;
+  font-family: arial;
+  font-weight: lighter;
+  font-size: 14px;
+  text-align: right;
+}
+
+body {
+  background-image: url(https://www.pehub.com/wp-content/uploads/2016/04/Lindsay-Weinberg-fund-Chris-160408.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.star {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  width: 75px;
+}
+
+h3 {
+  color: gray;
+  font-size: 40px;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: lighter;
+  display: flex;
+  position: relative;
+  left: 45%;
+}
+
+h4 {
+  color: gray;
+  font-size: 40px;
+  font-family: Helvetica;
+  font-weight: lighter;
+  font-style: normal;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: relative;
+  left: 55%;
+  bottom: 25px;
+}
+
+.catch {
+  position: relative;
+  left: 90px;
+  bottom: -100px;
+}
+
+.selection {
+  color: gray;
+  font-family: Helvetica;
+  font-weight: lighter;
+  font-size: 25px;
+  font-style: normal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  position: relative;
+  left: 55%;
+  bottom: -150px;
+}
+
+h5 {
+  color: gray;
+  font-family: Helvetica;
+  font-weight: lighter;
+  font-size: 25px;
+  font-style: normal;
+}
+
+.wes {
+  color: black;
+  font-family: Helvetica;
+  font-weight: lighter;
+  font-size: 35px;
+  font-style: normal;
+  text-align: center;
+  width: 190px;
+  position: relative;
+  left: 55%;
+  bottom: -120px;
+  border: 3px solid red;
+  border-style: inset;
+  background-color: white;
+  opacity: 0.6;
+  border-color: red;
+  border-radius: 15px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outside {
+  color: black;
+  font-family: Helvetica;
+  font-weight: lighter;
+  font-size: 35px;
+  font-style: normal;
+  text-align: center;
+  width: 190px;
+  position: relative;
+  left: 70%;
+  bottom: 85px;
+  border: 3px solid red;
+  border-style: inset;
+  background-color: white;
+  opacity: 0.6;
+  border-color: red;
+  border-radius: 15px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
