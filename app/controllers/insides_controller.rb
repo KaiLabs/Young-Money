@@ -69,6 +69,6 @@ class InsidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inside_params
-      params.require(:inside).permit(:name, :deadline, :description)
+      params.require(:inside).permit(:name, :deadline, :category, :location)
     end
 end

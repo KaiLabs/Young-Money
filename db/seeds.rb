@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
+Insides.create([{ name: 'Frederick Engels internship fund'},{ deadline: '2017-06-24'},{ category: 'Internship'},{ location: 'Barmen, Kingdom of Prussia'}])
+Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
+Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
+Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
+Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
+Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
+Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])

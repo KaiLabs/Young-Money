@@ -3,7 +3,8 @@ class CreateInsides < ActiveRecord::Migration[5.0]
     create_table :insides do |t|
       t.string :name
       t.date :deadline
-      t.text :description
+      t.string :category
+      t.string :location
 
       t.timestamps
     end

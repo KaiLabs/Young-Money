@@ -21,11 +21,8 @@
         WesFund
       </a>
       <ul class="nav navbar-nav pull-xs-right">
-        <li class="nav-item ">
-          <a class="nav-link" href="#">Sign in</a>
-        </li>
         <li class="nav-item">
-          <a class="nav-link" href="get_involved.html">{Star image here}</a>
+          <a class="nav-link" href="#">Sign in</a>
         </li>
       </ul>
     </div>
@@ -112,13 +109,15 @@
 
       <!--search results-->
       <div class="col-xs-7">
+        <%= link_to 'New Inside', new_inside_path %>
+
         <table class="table">
           <thead class="thead-inverse">
             <tr>
               <th>Name</th>
               <th>Deadline</th>
-              <th>Description</th>
-              <!--th>Location</th-->
+              <th>Category</th>
+              <th>Location</th>
             </tr>
           </thead>
           <tbody>
@@ -127,7 +126,8 @@
               <tr>
                 <td><%= inside.name %></td>
                 <td><%= inside.deadline %></td>
-                <td><%= inside.description %></td>
+                <td><%= inside.category %></td>
+                <td><%= inside.location %></td>
                 <td><%= link_to 'Show', inside %></td>
                 <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
                 <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -143,43 +143,6 @@
 
     </div>
   </div>
-
-<!--
-  <p id="notice"><%= notice %></p>
-
-  <h1>Insides</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Deadline</th>
-        <th>Description</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-
-      <% @insides.each do |inside| %>
-        <tr>
-          <td><%= inside.name %></td>
-          <td><%= inside.deadline %></td>
-          <td><%= inside.description %></td>
-          <td><%= link_to 'Show', inside %></td>
-          <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
-          <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-
-
-    </tbody>
-  </table>
-
-  <br>
-
-  <%= link_to 'New Inside', new_inside_path %>
--->
 
   <!-- jQuery first, then Tether, then Bootstrap JS. -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
