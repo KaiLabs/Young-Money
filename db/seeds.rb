@@ -7,11 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
-Insides.create([{ name: 'Frederick Engels internship fund'},{ deadline: '2017-06-24'},{ category: 'Internship'},{ location: 'Barmen, Kingdom of Prussia'}])
-Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
-Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
-Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
-Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
-Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
-Insides.create([{ name: 'Karl Marx research grant'},{ deadline: '2017-06-24'},{ category: 'Research'},{ location: 'Trier, Kingdom of Prussia'}])
+Inside.create([{ name: 'Karl Marx research grant', deadline: '2017-06-24', category: 'Research',location: 'Trier, Kingdom of Prussia'},
+  { name: 'Frederick Engels internship fund', deadline: '2017-08-14', category: 'Internship', location: 'Barmen, Kingdom of Prussia'},
+  { name: 'Joseph Stalin leadership fund', deadline: '2018-03-06', category: 'Grant', location: 'Moscow, Russia'},
+  { name: 'Vladimir Lenin scholarship fund', deadline: '2020-01-02', category: 'Scholarship', location: 'Moscow, Russia'}])
