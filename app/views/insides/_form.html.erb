@@ -27,13 +27,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
+    <%= f.label :department %>
+    <%= f.select :department, ['African American Studies', 'African Studies', 'American Studies', 'Etc']%>
   </div>
 
   <div class="field">
-    <%= f.label :department %>
-    <%= f.select :department, ['African American Studies', 'African Studies', 'American Studies', 'Etc']%>
+    <%= f.label :season %>
+    <%= f.select :season, ['Fall', 'Winter', 'Spring', 'Summer']%>
   </div>
 
   <div class="actions">

@@ -117,7 +117,7 @@
               <th>Name</th>
               <th>Deadline</th>
               <th>Category</th>
-              <th>Location</th>
+              <th>Department</th>
             </tr>
           </thead>
           <tbody>
@@ -127,7 +127,7 @@
                 <td><%= inside.name %></td>
                 <td><%= inside.deadline %></td>
                 <td><%= inside.category %></td>
-                <td><%= inside.location %></td>
+                <td><%= inside.department %></td>
                 <td><%= link_to 'Show', inside %></td>
                 <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
                 <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
