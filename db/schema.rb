@@ -16,10 +16,9 @@ ActiveRecord::Schema.define(version: 20170304214458) do
     t.string   "name"
     t.date     "deadline"
     t.string   "category"
-    t.string   "location"
+    t.string   "department"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "department"
   end
 
 end
