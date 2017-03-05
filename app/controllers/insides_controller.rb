@@ -5,6 +5,25 @@ class InsidesController < ApplicationController
   # GET /insides.json
   def index
     @insides = Inside.all
+=begin
+      if params[:search]
+       @insides = Inside.search(params[:search]).order("created_at DESC")
+     else
+       @insides = Inside.all.order("created_at DESC")
+     end
+
+    if params[:filter]
+      @insides = Inside.filter(params[:filter]).order("created_at DESC")
+    else
+      @insides = Inside.all.order("created_at DESC")
+    end
+=end
+  @insides = Inside.where(nil) # creates an anonymous scope
+  @insides = @insides.category(params[:category]) if params[:category].present?
+  @insides = @insides.department(params[:department]) if params[:department].present?
+  @insides = @insides.season(params[:season]) if params[:season].present?
+  @insides = @insides.starts_with(params[:starts_with]) if params[:starts_with].present?
+
   end
 
   # GET /insides/1
@@ -58,15 +77,6 @@ class InsidesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to insides_url, notice: 'Inside was successfully destroyed.' }
       format.json { head :no_content }
-    end
-  end
-
-  def index
-    @insides = Inside.all
-    if params[:search]
-      @insides = Inside.search(params[:search]).order("created_at DESC")
-    else
-      @insides = Inside.all.order("created_at DESC")
     end
   end
 
