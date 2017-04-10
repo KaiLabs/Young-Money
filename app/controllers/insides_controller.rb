@@ -5,24 +5,41 @@ class InsidesController < ApplicationController
   # GET /insides.json
   def index
     @insides = Inside.all
-=begin
-      if params[:search]
-       @insides = Inside.search(params[:search]).order("created_at DESC")
-     else
-       @insides = Inside.all.order("created_at DESC")
-     end
 
-    if params[:filter]
-      @insides = Inside.filter(params[:filter]).order("created_at DESC")
-    else
-      @insides = Inside.all.order("created_at DESC")
+    if params[:search]
+      @insides = Inside.search(params[:search])
     end
-=end
-  @insides = Inside.where(nil) # creates an anonymous scope
-  @insides = @insides.category(params[:category]) if params[:category].present?
-  @insides = @insides.department(params[:department]) if params[:department].present?
-  @insides = @insides.season(params[:season]) if params[:season].present?
-  @insides = @insides.starts_with(params[:starts_with]) if params[:starts_with].present?
+
+#    if params[:filter]
+#      @insides = Inside.filter(params[:filter]).order("created_at DESC")
+#    else
+#      @insides = Inside.all.order("created_at DESC")
+#    end
+
+#    @insides = Inside.where(nil) # creates an anonymous scope
+#    @insides = @insides.category(params[:category]) if params[:category].present?
+#    @insides = @insides.department(params[:department]) if params[:department].present?
+#    @insides = @insides.season(params[:season]) if params[:season].present?
+#    @insides = @insides.starts_with(params[:starts_with]) if params[:starts_with].present?
+
+    ###    SORTING   ###
+    # Sorts all recipes based on the selected sorting column
+    if params[:sorting] == 'name'
+      #SQL syntax is used here, replace ASC with DESC if you want reverse order
+      @insides = @insides.order('insides.name ASC')
+
+    elsif params[:sorting] == 'category'
+      @insides = @insides.order('insides.category ASC')
+
+    elsif params[:sorting] == 'department'
+      @insides = @insides.order('insides.department ASC')
+
+    elsif params[:sorting] == 'deadline'
+      @insides = @insides.order('insides.deadline ASC')
+
+    elsif params[:sorting] == 'season'
+      @insides = @insides.order('insides.season ASC')
+    end
 
   end
 

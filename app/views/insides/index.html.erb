@@ -229,11 +229,11 @@
         <table class="table">
           <thead class="thead-inverse">
             <tr>
-              <th>Name</th>
-              <th>Deadline</th>
-              <th>Category</th>
-              <th>Department</th>
-              <th>Season</th>
+              <th><%= link_to 'Name', insides_path(:sorting => 'name')%></th>
+              <th><%= link_to 'Deadline', insides_path(:sorting => 'deadline')%></th>
+              <th><%= link_to 'Category', insides_path(:sorting => 'category')%></th>
+              <th><%= link_to 'Department', insides_path(:sorting => 'department')%></th>
+              <th><%= link_to 'Season', insides_path(:sorting => 'season')%></th>
             </tr>
           </thead>
           <tbody>

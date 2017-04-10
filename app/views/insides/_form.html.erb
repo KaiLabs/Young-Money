@@ -13,27 +13,27 @@
 
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :required => true  %>
   </div>
 
   <div class="field">
     <%= f.label :deadline %>
-    <%= f.date_select :deadline %>
+    <%= f.date_select :deadline, :required => true  %>
   </div>
 
   <div class="field">
     <%= f.label :category %>
-    <%= f.select :category, ['Internship', 'Scholarship', 'Grant', 'Research']%>
+    <%= f.select :category, ['Internship', 'Scholarship', 'Grant', 'Research'], :required => true %>
   </div>
 
   <div class="field">
     <%= f.label :department %>
-    <%= f.select :department, ['African American Studies', 'African Studies', 'American Studies', 'Etc']%>
+    <%= f.select :department, ['African American Studies', 'African Studies', 'American Studies', 'Etc'], :required => true %>
   </div>
 
   <div class="field">
     <%= f.label :season %>
-    <%= f.select :season, ['Fall', 'Winter', 'Spring', 'Summer']%>
+    <%= f.select :season, ['Fall', 'Winter', 'Spring', 'Summer'], :required => true %>
   </div>
 
   <div class="actions">

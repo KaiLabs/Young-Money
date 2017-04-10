@@ -8,8 +8,8 @@ class Inside < ApplicationRecord
     "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"
     )
   end
-  scope :category, -> (category) {where category: category}
-  scope :department, -> (department) {where department: department}
-  scope :season, -> (season) {where season: season}
-  scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
+#  scope :category, -> (category) {where category: category}
+#  scope :department, -> (department) {where department: department}
+#  scope :season, -> (season) {where season: season}
+#  scope :starts_with, -> (name) { where("name like ?", "#{name}%")}
 end
