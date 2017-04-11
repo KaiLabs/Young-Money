@@ -52,10 +52,10 @@
             Category
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'Scholarship', insides_path(:category => 'Scholarship'), class:'dropdown-item'%>
-            <%= link_to 'Internship', insides_path(:category => 'Internship'), class:'dropdown-item'%>
-            <%= link_to 'Grant', insides_path(:category => 'Grant'), class:'dropdown-item'%>
-            <%= link_to 'Research', insides_path(:category => 'Research'), class:'dropdown-item'%>
+            <%= link_to 'Scholarship', insides_path(:filter_category => 'Scholarship'), class: 'dropdown-item' %>
+            <%= link_to 'Internship', insides_path(:filter_category => 'Internship'), class:'dropdown-item'%>
+            <%= link_to 'Grant', insides_path(:filter_category => 'Grant'), class:'dropdown-item'%>
+            <%= link_to 'Research', insides_path(:filter_category => 'Research'), class:'dropdown-item'%>
           </div>
         </div>
       </div>
@@ -68,10 +68,10 @@
             Season
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'Fall', insides_path(:season => 'Fall'), class:'dropdown-item'%>
-            <%= link_to 'Winter', insides_path(:season => 'Winter'), class:'dropdown-item'%>
-            <%= link_to 'Spring', insides_path(:season => 'Spring'), class:'dropdown-item'%>
-            <%= link_to 'Summer', insides_path(:season => 'Summer'), class:'dropdown-item'%>
+            <%= link_to 'Fall', insides_path(:filter_season => 'Fall'), class:'dropdown-item'%>
+            <%= link_to 'Winter', insides_path(:filter_season => 'Winter'), class:'dropdown-item'%>
+            <%= link_to 'Spring', insides_path(:filter_season => 'Spring'), class:'dropdown-item'%>
+            <%= link_to 'Summer', insides_path(:filter_season => 'Summer'), class:'dropdown-item'%>
           </div>
         </div>
       </div>
