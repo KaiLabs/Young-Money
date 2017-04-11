@@ -226,7 +226,7 @@
         <% if current_user.name == 'Mario See' %>
         <%= link_to 'New Inside', new_inside_path %>
         <% end %>
-
+        <h1> Available Opportunities</h1>
         <table class="table">
           <thead class="thead-inverse">
             <tr>
@@ -252,7 +252,9 @@
                   <td><%= inside.category %></td>
                   <td><%= inside.department %></td>
                   <td><%= inside.season %></td>
-
+                  <td><% if current_user %>
+                    <%= link_to "favorite",   favorite_inside_path(id: inside.id, type: "favorite"), method: :put %>
+                    <% end %></td>
 
                   <% if current_user.name == 'Mario See' %>
                     <td><%= link_to 'Show', inside %></td>
@@ -265,6 +267,39 @@
 
           </tbody>
         </table>
+
+        <h1> Your Favorites</h1>
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th><%= link_to 'Name', insides_path(:sorting => 'name')%></th>
+              <th><%= link_to 'Deadline', insides_path(:sorting => 'deadline')%></th>
+              <th><%= link_to 'Category', insides_path(:sorting => 'category')%></th>
+              <th><%= link_to 'Department', insides_path(:sorting => 'department')%></th>
+              <th><%= link_to 'Season', insides_path(:sorting => 'season')%></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if current_user.favorites.blank? %>
+              <tr>
+                <td>
+                You have favorited no opportunities yet.
+                </td>
+              </tr>
+            <% else %>
+              <% current_user.favorites.each do |fave| %>
+                <tr>
+                  <td><%= fave.name %></td>
+                  <td><%= fave.deadline %></td>
+                  <td><%= fave.category %></td>
+                  <td><%= fave.department %></td>
+                  <td><%= fave.season %></td>
+                  <td><% if current_user %>
+                    <%= link_to "unfavorite", favorite_inside_path(id: fave.id, type: "unfavorite"), method: :put %>
+                    <% end %></td>
+                </tr>
+              <% end %>
+            <% end %>
       </div>
 
 
