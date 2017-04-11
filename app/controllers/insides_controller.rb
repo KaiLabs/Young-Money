@@ -3,8 +3,10 @@ class InsidesController < ApplicationController
 
   # GET /insides
   # GET /insides.json
+
   def index
     @insides = Inside.all
+
 
     ### SEARCHING ###
     if params[:search]
