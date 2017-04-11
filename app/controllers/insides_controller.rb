@@ -6,21 +6,21 @@ class InsidesController < ApplicationController
   def index
     @insides = Inside.all
 
+    ### SEARCHING ###
     if params[:search]
       @insides = Inside.search(params[:search])
     end
 
-#    if params[:filter]
-#      @insides = Inside.filter(params[:filter]).order("created_at DESC")
-#    else
-#      @insides = Inside.all.order("created_at DESC")
-#    end
+    ### FILTERING ###
+    #implementing filter for category
+    if params[:filter_category]
+      @insides = Inside.filter_category(params[:filter_category])
+    end
 
-#    @insides = Inside.where(nil) # creates an anonymous scope
-#    @insides = @insides.category(params[:category]) if params[:category].present?
-#    @insides = @insides.department(params[:department]) if params[:department].present?
-#    @insides = @insides.season(params[:season]) if params[:season].present?
-#    @insides = @insides.starts_with(params[:starts_with]) if params[:starts_with].present?
+    #implementing filter for season
+    if params[:filter_season]
+      @insides = Inside.filter_season(params[:filter_season])
+    end
 
     ###    SORTING   ###
     # Sorts all recipes based on the selected sorting column
