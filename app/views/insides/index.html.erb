@@ -22,7 +22,7 @@
       </a>
       <ul class="nav navbar-nav pull-xs-right">
         <li class="nav-item">
-          Signed in as <strong><%= current_user.name %></strong>!
+          Hello, <strong><%= current_user.name %></strong>!
           <a class="nav-link"><%= link_to "Sign out", signout_path, id: "sign_out" %></a>
         </li>
       </ul>
@@ -224,7 +224,7 @@
       <!--search results-->
       <div class="col-xs-9">
         <% if current_user.name == 'Mario See' %>
-          <%= link_to 'New Inside', new_inside_path %>
+        <%= link_to 'New Inside', new_inside_path %>
         <% end %>
 
         <table class="table">
