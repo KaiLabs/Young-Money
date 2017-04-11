@@ -223,9 +223,9 @@
 
       <!--search results-->
       <div class="col-xs-9">
-        <!--<% if current_user.name == 'Mario See' %>-->
+        <% if current_user.name == 'Mario See' %>
         <%= link_to 'New Inside', new_inside_path %>
-        <!--<% end %>-->
+        <% end %>
 
         <table class="table">
           <thead class="thead-inverse">
@@ -252,11 +252,11 @@
                   <td><%= inside.category %></td>
                   <td><%= inside.department %></td>
                   <td><%= inside.season %></td>
-                  <!--<% if current_user.name == 'Mario See' %>-->
+                  <% if current_user.name == 'Mario See' %>
                     <td><%= link_to 'Show', inside %></td>
                     <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
                     <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  <!--<% end %>-->
+                  <% end %>
                 </tr>
               <% end %>
             <% end %>
