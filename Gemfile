@@ -16,6 +16,8 @@ end
 group :production do
   gem 'pg'
 end
+# Google OAuth
+gem 'omniauth-google-oauth2', '~> 0.2.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
