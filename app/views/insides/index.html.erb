@@ -22,6 +22,7 @@
       </a>
       <ul class="nav navbar-nav pull-xs-right">
         <li class="nav-item">
+          Signed in as <strong><%= current_user.name %></strong>!
           <a class="nav-link"><%= link_to "Sign out", signout_path, id: "sign_out" %></a>
         </li>
       </ul>
@@ -222,7 +223,9 @@
 
       <!--search results-->
       <div class="col-xs-9">
-        <%= link_to 'New Inside', new_inside_path %>
+        <% if current_user.name == 'Mario See' %>
+          <%= link_to 'New Inside', new_inside_path %>
+        <% end %>
 
         <table class="table">
           <thead class="thead-inverse">
@@ -249,9 +252,11 @@
                   <td><%= inside.category %></td>
                   <td><%= inside.department %></td>
                   <td><%= inside.season %></td>
-                  <td><%= link_to 'Show', inside %></td>
-                  <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
-                  <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <% if current_user.name == 'Mario See' %>
+                    <td><%= link_to 'Show', inside %></td>
+                    <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
+                    <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <% end %>
                 </tr>
               <% end %>
             <% end %>
