@@ -1,10 +1,10 @@
 class Inside < ApplicationRecord
   def self.search(search)
-    where("name LIKE ? OR
-    category LIKE ? OR
-    department LIKE ? OR
-    season LIKE ?",
-    "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"
+    where("LOWER(name) LIKE ? OR
+    LOWER(category) LIKE ? OR
+    LOWER(department) LIKE ? OR
+    LOWER(season) LIKE ?",
+    "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%"
     )
   end
 
