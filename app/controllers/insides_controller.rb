@@ -8,19 +8,18 @@ class InsidesController < ApplicationController
 
     ### SEARCHING ###
     if params[:search]
-      @insides = Inside.search(params[:search])
+      @insides = Inside.search(params[:search], )
     end
 
     ### FILTERING ###
-    #implementing filter for category
-    if params[:filter_category]
-      @insides = Inside.filter_category(params[:filter_category])
+    #implementing filter
+    if params[:category] or params[:season] or params[:department]
+      @insides = Inside.filter(params[:category], params[:season], params[:department])
     end
-
     #implementing filter for season
-    if params[:filter_season]
-      @insides = Inside.filter_season(params[:filter_season])
-    end
+  #  if params[:filter_season]
+  #    @insides = Inside.filter_season(params[:filter_season])
+  #  end
 
     ###    SORTING   ###
     # Sorts all recipes based on the selected sorting column
