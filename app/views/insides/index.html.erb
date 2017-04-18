@@ -9,6 +9,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
   <link rel="stylesheet" href="css/flexboxgrid.min.css" type="text/css">
+  <link rel="stylesheet" href="assets/stylesheets/bootstrap.min.css" type="text/css">
 </head>
 
 
@@ -17,7 +18,7 @@
   <!--Navigation bar-->
   <nav class="navbar navbar-dark bg-inverse navbar-fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="insides">
         WesFund
       </a>
       <ul class="nav navbar-nav pull-xs-right">
@@ -53,10 +54,10 @@
             Category
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'Scholarship', insides_path(:filter_category => 'Scholarship'), class: 'dropdown-item' %>
-            <%= link_to 'Internship', insides_path(:filter_category => 'Internship'), class:'dropdown-item'%>
-            <%= link_to 'Grant', insides_path(:filter_category => 'Grant'), class:'dropdown-item'%>
-            <%= link_to 'Research', insides_path(:filter_category => 'Research'), class:'dropdown-item'%>
+            <%= link_to 'Scholarship', insides_path(:category => 'Scholarship', :season => params[:season], :department => params[:department]), class: 'dropdown-item' %>
+            <%= link_to 'Internship', insides_path(:category => 'Internship',  :season => params[:season], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Grant', insides_path(:category => 'Grant',  :season => params[:season], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Research', insides_path(:category => 'Research',  :season => params[:season], :department => params[:department]), class:'dropdown-item'%>
           </div>
         </div>
       </div>
@@ -69,10 +70,10 @@
             Season
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'Fall', insides_path(:filter_season => 'Fall'), class:'dropdown-item'%>
-            <%= link_to 'Winter', insides_path(:filter_season => 'Winter'), class:'dropdown-item'%>
-            <%= link_to 'Spring', insides_path(:filter_season => 'Spring'), class:'dropdown-item'%>
-            <%= link_to 'Summer', insides_path(:filter_season => 'Summer'), class:'dropdown-item'%>
+            <%= link_to 'Fall', insides_path(:season => 'Fall', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Winter', insides_path(:season => 'Winter', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Spring', insides_path(:season => 'Spring', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Summer', insides_path(:season => 'Summer', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
           </div>
         </div>
       </div>
@@ -124,25 +125,30 @@
                 <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="">
-                      American Studies
+                    <%= link_to 'American Studies', insides_path(:season => params[:season], :category => params[:category], :department => 'American Studies'), class:'dropdown-item'%>
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="" >
-                      African-American Studies
+                    <%= link_to 'African American Studies', insides_path(:season => params[:season], :category => params[:category], :department => 'African American Studies'), class:'dropdown-item'%>
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="" >
-                      Math & Computer Science
+                    <%= link_to 'African Studies', insides_path(:season => params[:season], :category => params[:category], :department => 'African Studies'), class:'dropdown-item'%>
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="" >
-                      Government
+                    <%= link_to 'Office of Study Abroad', insides_path(:season => params[:season], :category => params[:category], :department => 'Office of Study Abroad'), class:'dropdown-item'%>
+                  </label>
+                </div><div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="" >
+                    <%= link_to 'Government', insides_path(:season => params[:season], :category => params[:category], :department => 'Government Department'), class:'dropdown-item'%>
                   </label>
                 </div>
               </div>
@@ -252,7 +258,7 @@
                   <td><%= inside.deadline %></td>
                   <td><%= inside.category %></td>
                   <td><%= inside.department %></td>
-                  <td><%= inside.season %></td>
+                  <td><%= inside.semester %></td>
                   <td><% if current_user %>
                     <%= link_to "Favorite",   favorite_inside_path(id: inside.id, type: "favorite"), method: :put %>
                     <% end %></td>
@@ -295,7 +301,7 @@
                   <td><%= fave.deadline %></td>
                   <td><%= fave.category %></td>
                   <td><%= fave.department %></td>
-                  <td><%= fave.season %></td>
+                  <td><%= fave.semester %></td>
                   <td><% if current_user %>
                     <%= link_to "Unfavorite", favorite_inside_path(id: fave.id, type: "unfavorite"), method: :put %>
                     <% end %></td>
