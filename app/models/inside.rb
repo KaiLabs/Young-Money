@@ -29,4 +29,6 @@ class Inside < ApplicationRecord
     )
   end
 
+  has_many :favorite_insides # just the 'relationships'
+  has_many :favorited_by, through: :favorite_insides, source: :user
 end

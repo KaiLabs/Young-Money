@@ -12,17 +12,23 @@
 
 ActiveRecord::Schema.define(version: 20170418202751) do
 
+  create_table "favorite_insides", force: :cascade do |t|
+    t.integer  "inside_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "insides", force: :cascade do |t|
     t.string   "name"
     t.date     "deadline"
     t.string   "category"
-    t.string   "department"
-    t.string   "semester"
-    t.string   "year"
+    t.string   "location"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "department"
+    t.string   "semester"
     t.string   "link"
-    t.string   "location"
     t.string   "description"
   end
 

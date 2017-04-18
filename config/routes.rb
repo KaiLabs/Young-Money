@@ -15,5 +15,9 @@ Rails.application.routes.draw do
 
   resources :insides
   get 'welcome/index'
+
+  resources :insides do
+    put :favorite, on: :member
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -222,10 +222,10 @@
 
       <!--search results-->
       <div class="col-xs-9">
-        <% #if current_user.name == 'Mario See' %>
-        <%= link_to 'New Inside', new_inside_path %>
-        <% #end %>
-
+        <% if current_user.name == 'Mario See' %>
+          <%= link_to 'New Inside', new_inside_path %>
+        <% end %>
+        <h1> Available Opportunities</h1>
         <table class="table">
           <thead class="thead-inverse">
             <tr>
@@ -236,6 +236,7 @@
               <th><%= link_to 'Semester', insides_path(:sorting => 'semester')%></th>
               <th><%= link_to 'Years', insides_path(:sorting => 'year')%></th>
               <th>Information</th>
+              <th>Favorite</th>
             </tr>
           </thead>
           <tbody>
@@ -259,6 +260,9 @@
                   <% end %>
                   </td>
                   <td><%= link_to 'Show more info', inside %></td>
+                  <td><% if current_user %>
+                    <%= link_to "Favorite",   favorite_inside_path(id: inside.id, type: "favorite"), method: :put %>
+                    <% end %></td>
                   <% if current_user.name == 'Mario See' %>
                     <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
                     <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -269,6 +273,40 @@
 
           </tbody>
         </table>
+
+        <h1> Your Favorites</h1>
+        <table class="table">
+          <thead class="thead-inverse">
+            <tr>
+              <th><%= link_to 'Name', insides_path(:sorting => 'name')%></th>
+              <th><%= link_to 'Deadline', insides_path(:sorting => 'deadline')%></th>
+              <th><%= link_to 'Category', insides_path(:sorting => 'category')%></th>
+              <th><%= link_to 'Department', insides_path(:sorting => 'department')%></th>
+              <th><%= link_to 'Season', insides_path(:sorting => 'season')%></th>
+              <th>Unfavorite</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if current_user.favorites.blank? %>
+              <tr>
+                <td>
+                You have favorited no opportunities yet.
+                </td>
+              </tr>
+            <% else %>
+              <% current_user.favorites.each do |fave| %>
+                <tr>
+                  <td><%= fave.name %></td>
+                  <td><%= fave.deadline %></td>
+                  <td><%= fave.category %></td>
+                  <td><%= fave.department %></td>
+                  <td><%= fave.semester %></td>
+                  <td><% if current_user %>
+                    <%= link_to "Unfavorite", favorite_inside_path(id: fave.id, type: "unfavorite"), method: :put %>
+                    <% end %></td>
+                </tr>
+              <% end %>
+            <% end %>
       </div>
 
 
