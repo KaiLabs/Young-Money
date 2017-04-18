@@ -1,0 +1,20 @@
+D, [2017-04-18T23:28:26.623073 #4] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2017-04-18T23:28:26.643881 #4] DEBUG -- :   [1m[35m (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+D, [2017-04-18T23:28:26.647257 #4] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2017-04-18T23:28:26.651829 #4] DEBUG -- :   [1m[35m (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+D, [2017-04-18T23:28:26.655696 #4] DEBUG -- :   [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+D, [2017-04-18T23:28:26.659279 #4] DEBUG -- :   [1m[35m (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+rails aborted!
+ActiveRecord::ProtectedEnvironmentError: You are attempting to run a destructive action against your 'production' database.
+If you are sure you want to continue, run the same command with the environment variable:
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-5.0.2/lib/active_record/tasks/database_tasks.rb:51:in `check_protected_environments!'
+/app/vendor/bundle/ruby/2.2.0/gems/activerecord-5.0.2/lib/active_record/railties/databases.rake:11:in `block (2 levels) in <top (required)>'
+/app/vendor/bundle/ruby/2.2.0/gems/railties-5.0.2/lib/rails/commands/rake_proxy.rb:14:in `block in run_rake_task'
+/app/vendor/bundle/ruby/2.2.0/gems/railties-5.0.2/lib/rails/commands/rake_proxy.rb:11:in `run_rake_task'
+/app/vendor/bundle/ruby/2.2.0/gems/railties-5.0.2/lib/rails/commands/commands_tasks.rb:51:in `run_command!'
+/app/vendor/bundle/ruby/2.2.0/gems/railties-5.0.2/lib/rails/commands.rb:18:in `<top (required)>'
+/app/bin/rails:9:in `require'
+/app/bin/rails:9:in `<main>'
+Tasks: TOP => db:reset => db:drop => db:check_protected_environments
+(See full trace by running task with --trace)
