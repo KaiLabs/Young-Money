@@ -28,12 +28,37 @@
 
   <div class="field">
     <%= f.label :department %>
-    <%= f.select :department, ['African American Studies', 'African Studies', 'American Studies', 'Etc'], :required => true %>
+    <%= f.select :department, ['African American Studies', 'African Studies', 'American Studies', 'English', 'CIS'], :required => true %>
   </div>
 
   <div class="field">
-    <%= f.label :season %>
-    <%= f.select :season, ['Fall', 'Winter', 'Spring', 'Summer'], :required => true %>
+    <%= f.label :semester %>
+    <%= f.select :semester, ['Fall', 'Winter', 'Spring', 'Summer', 'Full Year'], :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.select :location, ['Wesleyan', 'Connecticut', 'National', 'International'],:required => true  %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Years Eligible:" %><br />
+    <%= f.collection_check_boxes :year_ids, Year.all, :id, :year do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :link %>
+    <%= f.text_field :link, :required => true  %>
   </div>
 
   <div class="actions">

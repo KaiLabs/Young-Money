@@ -1,5 +1,5 @@
 class AddSeasonToInsides < ActiveRecord::Migration[5.0]
   def change
-    add_column :insides, :season, :string
+    add_column :insides, :semester, :string
   end
 end
