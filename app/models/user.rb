@@ -9,4 +9,7 @@ class User < ApplicationRecord
       user.save!
     end
   end
+
+  has_many :favorite_insides
+  has_many :favorites, through: :favorite_insides, source: :inside
 end

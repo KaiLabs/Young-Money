@@ -44,6 +44,23 @@ class InsidesController < ApplicationController
 
   end
 
+  def favorite
+    type = params[:type]
+    @inside = Inside.find params[:id]
+    if type == "favorite"
+      current_user.favorites << @inside
+      redirect_to :back, notice: 'You favorited #{@inside.name}'
+
+    elsif type == "unfavorite"
+      current_user.favorites.delete(@inside)
+      redirect_to :back, notice: 'Unfavorited #{@inside.name}'
+
+    else
+      # Type missing, nothing happens
+      redirect_to :back, notice: 'Nothing happened.'
+    end
+  end
+
   # GET /insides/1
   # GET /insides/1.json
   def show
