@@ -15,12 +15,12 @@ class InsidesController < ApplicationController
 
     ### FILTERING ###
     #implementing filter
-    if params[:category] or params[:season] or params[:department]
-      @insides = Inside.filter(params[:category], params[:season], params[:department])
+    if params[:category] or params[:semester] or params[:department]
+      @insides = Inside.filter(params[:category], params[:semester], params[:department])
     end
-    #implementing filter for season
-  #  if params[:filter_season]
-  #    @insides = Inside.filter_season(params[:filter_season])
+    #implementing filter for semester
+  #  if params[:filter_semester]
+  #    @insides = Inside.filter_semester(params[:filter_semester])
   #  end
 
     ###    SORTING   ###
@@ -38,8 +38,8 @@ class InsidesController < ApplicationController
     elsif params[:sorting] == 'deadline'
       @insides = @insides.order('insides.deadline ASC')
 
-    elsif params[:sorting] == 'season'
-      @insides = @insides.order('insides.season ASC')
+    elsif params[:sorting] == 'semester'
+      @insides = @insides.order('insides.semester ASC')
     end
 
   end
@@ -79,7 +79,7 @@ class InsidesController < ApplicationController
   # POST /insides.json
   def create
     @inside = Inside.new(inside_params)
-
+    #params.require(:inside).permit(:year, year_ids:[])
     respond_to do |format|
       if @inside.save
         format.html { redirect_to @inside, notice: 'Inside was successfully created.' }
@@ -123,7 +123,7 @@ class InsidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inside_params
-      params.require(:inside).permit(:name, :deadline, :category, :department, :season)
+      params.require(:inside).permit(:name, :deadline, :category, :link, :year, :description , :department, :semester, year_ids:[])
     end
 
 end

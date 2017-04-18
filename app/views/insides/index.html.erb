@@ -54,10 +54,10 @@
             Category
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'Scholarship', insides_path(:category => 'Scholarship', :season => params[:season], :department => params[:department]), class: 'dropdown-item' %>
-            <%= link_to 'Internship', insides_path(:category => 'Internship',  :season => params[:season], :department => params[:department]), class:'dropdown-item'%>
-            <%= link_to 'Grant', insides_path(:category => 'Grant',  :season => params[:season], :department => params[:department]), class:'dropdown-item'%>
-            <%= link_to 'Research', insides_path(:category => 'Research',  :season => params[:season], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Scholarship', insides_path(:category => 'Scholarship', :semester => params[:semester], :department => params[:department]), class: 'dropdown-item' %>
+            <%= link_to 'Internship', insides_path(:category => 'Internship',  :semester => params[:semester], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Grant', insides_path(:category => 'Grant',  :semester => params[:semester], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Research', insides_path(:category => 'Research',  :semester => params[:semester], :department => params[:department]), class:'dropdown-item'%>
           </div>
         </div>
       </div>
@@ -67,13 +67,13 @@
       <div class= "col-xs-2 text-xs-center">
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Season
+            Semester
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'Fall', insides_path(:season => 'Fall', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
-            <%= link_to 'Winter', insides_path(:season => 'Winter', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
-            <%= link_to 'Spring', insides_path(:season => 'Spring', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
-            <%= link_to 'Summer', insides_path(:season => 'Summer', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Fall', insides_path(:semester => 'Fall', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Winter', insides_path(:semester => 'Winter', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Spring', insides_path(:semester => 'Spring', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
+            <%= link_to 'Summer', insides_path(:semester => 'Summer', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
           </div>
         </div>
       </div>
@@ -125,30 +125,30 @@
                 <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="">
-                    <%= link_to 'American Studies', insides_path(:season => params[:season], :category => params[:category], :department => 'American Studies'), class:'dropdown-item'%>
+                    <%= link_to 'American Studies', insides_path(:semester => params[:semester], :category => params[:category], :department => 'American Studies'), class:'dropdown-item'%>
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="" >
-                    <%= link_to 'African American Studies', insides_path(:season => params[:season], :category => params[:category], :department => 'African American Studies'), class:'dropdown-item'%>
+                    <%= link_to 'African American Studies', insides_path(:semester => params[:semester], :category => params[:category], :department => 'African American Studies'), class:'dropdown-item'%>
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="" >
-                    <%= link_to 'African Studies', insides_path(:season => params[:season], :category => params[:category], :department => 'African Studies'), class:'dropdown-item'%>
+                    <%= link_to 'College of Integrated Sciences', insides_path(:semester => params[:semester], :category => params[:category], :department => 'CIS'), class:'dropdown-item'%>
                   </label>
                 </div>
                 <div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="" >
-                    <%= link_to 'Office of Study Abroad', insides_path(:season => params[:season], :category => params[:category], :department => 'Office of Study Abroad'), class:'dropdown-item'%>
+                    <%= link_to 'English', insides_path(:semester => params[:semester], :category => params[:category], :department => 'English'), class:'dropdown-item'%>
                   </label>
                 </div><div class="form-check">
                   <label class="form-check-label">
                     <input class="form-check-input" type="checkbox" value="" >
-                    <%= link_to 'Government', insides_path(:season => params[:season], :category => params[:category], :department => 'Government Department'), class:'dropdown-item'%>
+                    <%= link_to 'Government', insides_path(:semester => params[:semester], :category => params[:category], :department => 'Government Department'), class:'dropdown-item'%>
                   </label>
                 </div>
               </div>
@@ -197,17 +197,10 @@
                       <label>US Citizen</label>
                   </label>
                 </div>
-
-
               </div>
             </div>
           </div>
-
-
-
         </div>
-
-
 
         <div class="dropdown m-y-1">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -230,7 +223,7 @@
       <!--search results-->
       <div class="col-xs-9">
         <% if current_user.name == 'Mario See' %>
-        <%= link_to 'New Inside', new_inside_path %>
+          <%= link_to 'New Inside', new_inside_path %>
         <% end %>
         <h1> Available Opportunities</h1>
         <table class="table">
@@ -240,7 +233,9 @@
               <th><%= link_to 'Deadline', insides_path(:sorting => 'deadline')%></th>
               <th><%= link_to 'Category', insides_path(:sorting => 'category')%></th>
               <th><%= link_to 'Department', insides_path(:sorting => 'department')%></th>
-              <th><%= link_to 'Season', insides_path(:sorting => 'season')%></th>
+              <th><%= link_to 'Semester', insides_path(:sorting => 'semester')%></th>
+              <th><%= link_to 'Years', insides_path(:sorting => 'year')%></th>
+              <th>Information</th>
               <th>Favorite</th>
             </tr>
           </thead>
@@ -259,12 +254,16 @@
                   <td><%= inside.category %></td>
                   <td><%= inside.department %></td>
                   <td><%= inside.semester %></td>
+                  <td>
+                  <% inside.year_ids.each do |id| %>
+                    <%= Year.find(id).year %>
+                  <% end %>
+                  </td>
+                  <td><%= link_to 'Show more info', inside %></td>
                   <td><% if current_user %>
                     <%= link_to "Favorite",   favorite_inside_path(id: inside.id, type: "favorite"), method: :put %>
                     <% end %></td>
-
                   <% if current_user.name == 'Mario See' %>
-                    <td><%= link_to 'Show', inside %></td>
                     <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
                     <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   <% end %>

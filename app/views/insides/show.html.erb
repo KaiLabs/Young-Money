@@ -25,5 +25,17 @@
   <%= @inside.semester %>
 </p>
 
+<p>
+  <strong>Description:</strong>
+  <%= @inside.description %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= link_to "Click here to apply", @inside.link, :target => "_blank" %>
+
+</p>
+
+
 <%= link_to 'Edit', edit_inside_path(@inside) %> |
 <%= link_to 'Back', insides_path %>
