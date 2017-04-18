@@ -123,7 +123,7 @@ class InsidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inside_params
-      params.require(:inside).permit(:name, :deadline, :category, :link, :year, :description , :department, :semester, year_ids:[])
+      params.require(:inside).permit(:name, :deadline, :category, :link, :year, :description , :department, :semester, :location, year_ids:[])
     end
 
 end
