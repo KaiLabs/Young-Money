@@ -5,6 +5,10 @@ class CreateInsides < ActiveRecord::Migration[5.0]
       t.date :deadline
       t.string :category
       t.string :location
+      t.string :department
+      t.string :semester
+      t.string :link
+      t.string :description
 
       t.timestamps
     end
