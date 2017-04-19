@@ -20,6 +20,12 @@ end
 gem 'omniauth-google-oauth2', '~> 0.2.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+#Tether for Bootstrapsource 'https://rails-assets.org'
+gem 'rails-assets-tether', source: 'https://rails-assets.org'
+#Bootstrap
+gem 'bootstrap', '~> 4.0.0.alpha6'
+#Normalize-rails for bootstrap
+gem 'normalize-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
