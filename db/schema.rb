@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418202751) do
+ActiveRecord::Schema.define(version: 20170425232141) do
 
   create_table "favorite_insides", force: :cascade do |t|
     t.integer  "inside_id"
@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 20170418202751) do
     t.string   "name"
     t.date     "deadline"
     t.string   "category"
-    t.string   "location"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.string   "department"
     t.string   "semester"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "link"
+    t.string   "location"
     t.string   "description"
   end
 
@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(version: 20170418202751) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "admin",            default: false
   end
 
   create_table "years", force: :cascade do |t|
