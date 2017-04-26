@@ -1,25 +1,34 @@
 
   <!--Navigation bar-->
-  <nav class="navbar navbar-dark bg-inverse navbar-fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="insides">
-        WesFund
-      </a>
-      <ul class="nav navbar-nav pull-xs-right">
-        <li class="nav-item">
-          Hello, <strong><%= current_user.name %></strong>!
-          <a class="nav-link"><%= link_to "Sign out", signout_path, id: "sign_out" %></a>
+  <nav class="navbar navbar-toggleable-md navbar-dark bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">WesFund</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
       </ul>
+      <form class="form-inline">
+        Hello, <strong><%= current_user.name %></strong>!
+        <%= link_to "Sign out", signout_path, id: "sign_out", :class => "btn btn-sm btn-link" %>
+        <button class="btn btn-sm btn-link my-2 my-sm-0" type="button" data-toggle="modal" data-target=".favorites-modal-lg">
+          Favorites
+        </button>
+      </form>
     </div>
   </nav>
+
 
   <!--Side filters and search list-->
   <div class="container-fluid">
     <div class="container">
       <div class="row">
         <div class="col-sm-3">
-
+          <!--Search Params Box-->
             <p>
               <%= params[:search] %>,
               <%= params[:semester] %>,
@@ -27,7 +36,7 @@
               <%= params[:department] %>
             </p>
           <!--Clear Params-->
-            <%= link_to 'Reset', insides_path(:search => nil, :semester => nil, :category => nil, :department => nil), class: "btn btn-sm" %>
+            <%= link_to 'Reset', insides_path(:search => nil, :semester => nil, :category => nil, :department => nil), class: "btn btn-sm btn-link" %>
           <!--Search-->
           <%= form_tag(insides_path, :method => "get", class:"input-group", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search for...", class:"form-control" %>
@@ -134,10 +143,10 @@
                   Category
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <%= link_to 'Scholarship', insides_path(:category => 'Scholarship', :semester => params[:semester], :department => params[:department]), class: 'dropdown-item' %>
-                  <%= link_to 'Internship', insides_path(:category => 'Internship',  :semester => params[:semester], :department => params[:department]), class:'dropdown-item'%>
-                  <%= link_to 'Grant', insides_path(:category => 'Grant',  :semester => params[:semester], :department => params[:department]), class:'dropdown-item'%>
-                  <%= link_to 'Research', insides_path(:category => 'Research',  :semester => params[:semester], :department => params[:department]), class:'dropdown-item'%>
+                  <%= link_to 'Scholarship', insides_path(:category => 'Scholarship', :semester => params[:semester], :department => params[:department]), :class => 'dropdown-item' %>
+                  <%= link_to 'Internship', insides_path(:category => 'Internship',  :semester => params[:semester], :department => params[:department]), :class => 'dropdown-item'%>
+                  <%= link_to 'Grant', insides_path(:category => 'Grant',  :semester => params[:semester], :department => params[:department]), :class => 'dropdown-item'%>
+                  <%= link_to 'Research', insides_path(:category => 'Research',  :semester => params[:semester], :department => params[:department]), :class => 'dropdown-item'%>
                 </div>
               </div>
             </div>
@@ -147,10 +156,10 @@
                 Semester
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <%= link_to 'Fall', insides_path(:semester => 'Fall', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
-                <%= link_to 'Winter', insides_path(:semester => 'Winter', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
-                <%= link_to 'Spring', insides_path(:semester => 'Spring', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
-                <%= link_to 'Summer', insides_path(:semester => 'Summer', :category => params[:category], :department => params[:department]), class:'dropdown-item'%>
+                <%= link_to 'Fall', insides_path(:semester => 'Fall', :category => params[:category], :department => params[:department]), :class => 'dropdown-item'%>
+                <%= link_to 'Winter', insides_path(:semester => 'Winter', :category => params[:category], :department => params[:department]), :class => 'dropdown-item'%>
+                <%= link_to 'Spring', insides_path(:semester => 'Spring', :category => params[:category], :department => params[:department]), :class => 'dropdown-item'%>
+                <%= link_to 'Summer', insides_path(:semester => 'Summer', :category => params[:category], :department => params[:department]), :class => 'dropdown-item'%>
               </div>
             </div>
 
@@ -169,11 +178,11 @@
         </div>
 
         <div class="col-sm-9">
-          <% if current_user.name == 'Mario See' %>
-            <%= link_to 'New Inside', new_inside_path %>
+          <% if current_user.admin? %>
+            <%= link_to 'New Entry', new_inside_path, :class => "btn btn-sm btn-link"%>
           <% end %>
           <h1> Available Opportunities</h1>
-          <table class="table">
+          <table class="table table-striped table-bordered table-hover table-sm table-responsive">
             <thead class="thead-inverse">
               <tr>
                 <th><%= link_to 'Name', insides_path(:sorting => 'name')%></th>
@@ -184,6 +193,11 @@
                 <th><%= link_to 'Years', insides_path(:sorting => 'year')%></th>
                 <th>Information</th>
                 <th>Favorite</th>
+                <% if current_user.admin? %>
+                  <th>
+                    Admin
+                  </th>
+                <% end %>
               </tr>
             </thead>
             <tbody>
@@ -195,7 +209,7 @@
                 </tr>
               <% else %>
                 <% @insides.each do |inside| %>
-                  <tr>
+                  <tr data-toggle="collapse" data-parent="#accordion" href="collapse"  aria-expanded="true" aria-controls="collapse">
                     <td><%= inside.name %></td>
                     <td><%= inside.deadline %></td>
                     <td><%= inside.category %></td>
@@ -207,64 +221,145 @@
                       <% end %>
                     </td>
                     <td>
-                      <%= link_to 'Show more info', inside %>
+                      <!-- <%= link_to 'Show more info', inside %> -->
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#<%= inside.id %>">
+                        Show Info
+                      </button>
                     </td>
                     <td>
                       <% if current_user %>
-                        <%= link_to "Favorite",   favorite_inside_path(id: inside.id, type: "favorite"), method: :put %>
+                        <%= link_to "Favorite",   favorite_inside_path(id: inside.id, type: "favorite"), method: :put, :class => "btn btn-link btn-sm" %>
                       <% end %>
                     </td>
-                    <% if current_user.name == 'Mario' %>
-                      <td><%= link_to 'Edit', edit_inside_path(inside) %></td>
-                      <td><%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <% if current_user.admin? %>
+                      <td>
+                        <div class="btn-group btn-group-sm btn-group-vertical" role="group" aria-label="...">
+                          <%= link_to 'Edit', edit_inside_path(inside), :class => "btn btn-link btn-sm"  %>
+                          <%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-link btn-sm"  %>
+                        </div>
+                      </td>
                     <% end %>
                   </tr>
-                  <!-- <tr>
-                    <td>
+                  <tr>
+                    <td id="collapse" class="collapse" role="tabpanel" aria-labelledby="heading">
                       <%= inside.description %>
                     </td>
-                  </tr> -->
+                  </tr>
                 <% end %>
               <% end %>
 
             </tbody>
           </table>
 
-          <h1> Your Favorites</h1>
-          <table class="table">
-            <thead class="thead-inverse">
-              <tr>
-                <th><%= link_to 'Name', insides_path(:sorting => 'name')%></th>
-                <th><%= link_to 'Deadline', insides_path(:sorting => 'deadline')%></th>
-                <th><%= link_to 'Category', insides_path(:sorting => 'category')%></th>
-                <th><%= link_to 'Department', insides_path(:sorting => 'department')%></th>
-                <th><%= link_to 'Semester', insides_path(:sorting => 'semester')%></th>
-                <th>Unfavorite</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% if current_user.favorites.blank? %>
-                <tr>
-                  <td>
-                  You have favorited no opportunities yet.
-                  </td>
-                </tr>
-              <% else %>
-                <% current_user.favorites.each do |fave| %>
-                  <tr>
-                    <td><%= fave.name %></td>
-                    <td><%= fave.deadline %></td>
-                    <td><%= fave.category %></td>
-                    <td><%= fave.department %></td>
-                    <td><%= fave.semester %></td>
-                    <td><% if current_user %>
-                      <%= link_to "Unfavorite", favorite_inside_path(id: fave.id, type: "unfavorite"), method: :put %>
-                      <% end %></td>
-                  </tr>
-                <% end %>
-              <% end %>
-              </tbody>
-            </table>
+          <!--Favorites Table hidden inside 'Favorites' Modal-->
+          <div class="modal fade favorites-modal-lg" id="favoritesModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="myLargeModalLabel">Your Favorites</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <table class="table table-striped table-bordered table-hover table-sm table-responsive">
+                    <thead class="thead-inverse">
+                      <tr>
+                        <th><%= link_to 'Name', insides_path(:sorting => 'name')%></th>
+                        <th><%= link_to 'Deadline', insides_path(:sorting => 'deadline')%></th>
+                        <th><%= link_to 'Category', insides_path(:sorting => 'category')%></th>
+                        <th><%= link_to 'Department', insides_path(:sorting => 'department')%></th>
+                        <th><%= link_to 'Semester', insides_path(:sorting => 'semester')%></th>
+                        <th>Unfavorite</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% if current_user.favorites.blank? %>
+                        <tr>
+                          <td>
+                          You have favorited no opportunities yet.
+                          </td>
+                        </tr>
+                      <% else %>
+                        <% current_user.favorites.each do |fave| %>
+                          <tr>
+                            <td><%= fave.name %></td>
+                            <td><%= fave.deadline %></td>
+                            <td><%= fave.category %></td>
+                            <td><%= fave.department %></td>
+                            <td><%= fave.semester %></td>
+                            <td>
+                              <% if current_user %>
+                                <%= link_to "Unfavorite", favorite_inside_path(id: fave.id, type: "unfavorite"), method: :put, :class => "btn btn-sm btn-link" %>
+                              <% end %>
+                            </td>
+                          </tr>
+                        <% end %>
+                      <% end %>
+                      </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!--Show info modal loop-->
+          <% @insides.each do |inside| %>
+            <!--Modal-->
+            <div class="modal fade" id="<%= inside.id %>" tabindex="-1" role="dialog" aria-labelledby="<%= inside.id %>" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="<%= inside.id %>"><%= inside.name %></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p id="notice"><%= notice %></p>
+                    <p>
+                      <strong>Name:</strong>
+                      <%= inside.name %>
+                    </p>
+                    <p>
+                      <strong>Deadline:</strong>
+                      <%= inside.deadline %>
+                    </p>
+                    <p>
+                      <strong>Category:</strong>
+                      <%= inside.category %>
+                    </p>
+                    <p>
+                      <strong>Department:</strong>
+                      <%= inside.department %>
+                    </p>
+                    <p>
+                      <strong>Semester:</strong>
+                      <%= inside.semester %>
+                    </p>
+                    <p>
+                      <strong>Description:</strong>
+                      <%= inside.description %>
+                    </p>
+                    <p>
+                      <strong>Link:</strong>
+                      <%= link_to "Click here to apply", inside.link, :target => "_blank" %>
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end%>
+
+
         </div>
       </div>
     </div>
