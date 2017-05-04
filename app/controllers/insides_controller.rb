@@ -20,13 +20,9 @@ class InsidesController < ApplicationController
 
     ### FILTERING ###
     #implementing filter
-    if params[:category] or params[:semester] or params[:department]
-      @insides = Inside.filter(params[:category], params[:semester], params[:department])
+    if params[:category] or params[:department] or params[:location]
+      @insides = Inside.filter(params[:category], params[:department], params[:location])
     end
-    #implementing filter for semester
-  #  if params[:filter_semester]
-  #    @insides = Inside.filter_semester(params[:filter_semester])
-  #  end
 
     ###    SORTING   ###
     # Sorts all recipes based on the selected sorting column
@@ -42,9 +38,6 @@ class InsidesController < ApplicationController
 
     elsif params[:sorting] == 'deadline'
       @insides = @insides.order('insides.deadline ASC')
-
-    elsif params[:sorting] == 'semester'
-      @insides = @insides.order('insides.semester ASC')
     end
 
   end
@@ -128,7 +121,7 @@ class InsidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inside_params
-      params.require(:inside).permit(:name, :deadline, :category, :link, :year, :description , :department, :semester, :location, year_ids:[])
+      params.require(:inside).permit(:name, :deadline, :category, :link, :year, :description , :department, :location, year_ids:[])
     end
 
 end

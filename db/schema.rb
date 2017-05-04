@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20170425232141) do
     t.date     "deadline"
     t.string   "category"
     t.string   "department"
-    t.string   "semester"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "link"

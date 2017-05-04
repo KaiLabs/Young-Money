@@ -4,29 +4,21 @@ class Inside < ApplicationRecord
   def self.search(search)
     where("LOWER(name) LIKE ? OR
     LOWER(category) LIKE ? OR
-    LOWER(department) LIKE ? OR
-    LOWER(semester) LIKE ?",
-    "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%"
+    LOWER(department) LIKE ? ",
+    "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%"
     )
   end
 
   #define filter
-  def self.filter(category = nil, semester = nil, department = nil)
-    return where(category: category, department: department, semester: semester) if category && department && semester
+  def self.filter(category = nil, department = nil, location = nil)
+    return where(category: category, department: department, location: location) if category && department && location
+    return where(category: category, location: location) if category && location
+    return where(department: department, location: location) if department && location
     return where(category: category, department: department) if category && department
-    return where(category: category, semester: semester) if category && semester
-    return where(department: department, semester: semester) if department && semester
     return where(category: category) if category
     return where(department: department) if department
-    return where(semester: semester) if semester
+    return where(location: location) if location
     all
-  end
-
-  #defining filter for semester
-  def self.filter_semester(filter)
-    where("semester LIKE ?",
-    "%#{filter}%"
-    )
   end
 
   has_many :favorite_insides # just the 'relationships'

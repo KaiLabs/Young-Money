@@ -23,17 +23,12 @@
 
   <div class="field">
     <%= f.label :category %>
-    <%= f.select :category, ['Internship', 'Scholarship', 'Grant', 'Research'], :required => true %>
+    <%= f.select :category, ['Fellowship', 'Entrepreneurship', 'Scholarship', 'Grant', 'Research'], :required => true %>
   </div>
 
   <div class="field">
     <%= f.label :department %>
     <%= f.select :department, ['African American Studies', 'African Studies', 'American Studies', 'English', 'CIS'], :required => true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :semester %>
-    <%= f.select :semester, ['Fall', 'Winter', 'Spring', 'Summer', 'Full Year'], :required => true %>
   </div>
 
   <div class="field">
@@ -43,7 +38,7 @@
 
   <div class="field">
     <%= f.label :location %>
-    <%= f.select :location, ['Wesleyan', 'Connecticut', 'National', 'International'],:required => true  %>
+    <%= f.select :location, ['On-Campus', 'Off-Campus'],:required => true  %>
   </div>
 
   <div class="field">

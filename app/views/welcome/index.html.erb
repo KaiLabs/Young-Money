@@ -1,28 +1,43 @@
-<body style="background-image: url(https://www.pehub.com/wp-content/uploads/2016/04/Lindsay-Weinberg-fund-Chris-160408.jpg);">
+<div class="body">
+  <!--Navigation bar-->
+  <nav class="navbar navbar-inverse bg-inverse">
+    <a class="navbar-brand" href="#">WesFund</a>
+  </nav>
 
-    <div class="bar">
-      <h1>WesFund</h1>
-      <div class="star">
-        <h2><%= link_to "Sign in", "/auth/google_oauth2", id: "sign_in", style:"color: white" %></h2>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <!-- spacer -->
+        </div>
+        <div class="col-sm-6">
+          <div class="quote">
+            <h2>You have your dream, </h2>
+            <h2>and we have your back.</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <!-- spacer -->
+        </div>
+        <div class="col-sm-6">
+          <div class="description">
+            <h4>WesFund is an absolute source of interdisciplinary
+              funding opportunities available to the Wesleyan community</h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <!-- spacer -->
+        </div>
+        <div class="col-sm-6">
+          <div class="signin">
+            <%= link_to "Sign in", "/auth/google_oauth2", :id => "sign_in", :style => "color: white", :class => "btn btn-lg btn-primary" %>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="catch">
-      <h3>you got your dream,</h3>
-      <h4>and we got your back.</h4>
-    </div>
-
-    <div class="selection">
-      <h5>select one to start your search</h5>
-      <i class="fa fa-arrow-down" aria-hidden="true"></i>
-    </div>
-
-    <div class="wes" id="wes">
-      Within Wesleyan
-    </div>
-
-    <div class="outside" id="outside">
-      Outside Wesleyan
-    </div>
-
-</body>
+  </div>
+</div>

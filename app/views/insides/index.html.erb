@@ -28,14 +28,25 @@
       <div class="row">
         <div class="col-sm-3">
           <!--Search Params Box-->
-            <p>
-              <%= params[:search] %>,
-              <%= params[:semester] %>,
-              <%= params[:category] %>,
-              <%= params[:department] %>
-            </p>
-          <!--Clear Params-->
-            <%= link_to 'Reset', insides_path(:search => nil, :semester => nil, :category => nil, :department => nil), class: "btn btn-sm btn-link" %>
+          <div class="card">
+            <div class="card-block">
+              <!--Clear ALL Params-->
+              <%= link_to 'Reset All', insides_path(:search => nil, :category => nil, :department => nil, :location => nil), class: "btn btn-sm btn-warning" %>
+              <!--Individual Params-->
+              <% if params[:search] != nil %>
+                <%= link_to params[:search], insides_path(:search => nil, :category => params[:category], :department => params[:department], :location => params[:location]), class: "btn btn-sm btn-secondary" %>
+              <% end %>
+              <% if params[:category] != nil %>
+                <%= link_to params[:category] + " X", insides_path(:search => params[:search], :category => nil, :department => params[:department], :location => params[:location]), class: "btn btn-sm btn-secondary" %>
+              <% end %>
+              <% if params[:department] != nil %>
+                <%= link_to params[:department] + " X", insides_path(:search => params[:search], :category => params[:category], :department => nil, :location => params[:location]), class: "btn btn-sm btn-secondary" %>
+              <% end %>
+              <% if params[:location] != nil %>
+                <%= link_to params[:location] + " X", insides_path(:search => params[:search], :category => params[:category], :department => params[:department], :location => nil), class: "btn btn-sm btn-secondary" %>
+              <% end %>
+            </div>
+          </div>
           <!--Search-->
           <%= form_tag(insides_path, :method => "get", class:"input-group", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search for...", class:"form-control" %>
@@ -56,20 +67,20 @@
               <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                 <div class="card-block">
                   <div class="btn-group btn-group-sm btn-group-vertical" role="group" aria-label="...">
-                    <%= link_to 'American Studies', insides_path(:semester => params[:semester], :category => params[:category], :department => 'American Studies'), :class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'African American Studies', insides_path(:semester => params[:semester], :category => params[:category], :department => 'African American Studies'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'College of Integrated Sciences', insides_path(:semester => params[:semester], :category => params[:category], :department => 'CIS'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'English', insides_path(:semester => params[:semester], :category => params[:category], :department => 'English'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Computer Science', insides_path(:semester => params[:semester], :category => params[:category], :department => 'Computer Science'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Economics', insides_path(:semester => params[:semester], :category => params[:category], :department => 'Economics'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Government', insides_path(:semester => params[:semester], :category => params[:category], :department => 'Government'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Sociology', insides_path(:semester => params[:semester], :category => params[:category], :department => 'Sociology'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Art Studio', insides_path(:semester => params[:semester], :category => params[:category], :department => 'Art Studio'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Math', insides_path(:semester => params[:semester], :category => params[:category], :department => 'Math'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Biology', insides_path(:semester => params[:semester], :category => params[:category], :department => 'Biology'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Physics', insides_path(:semester => params[:semester], :category => params[:category], :department => 'Physics'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Chemistry', insides_path(:semester => params[:semester], :category => params[:category], :department => 'Chemistry'),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Environmental Science', insides_path(:semester => params[:semester], :category => params[:category], :department => 'Environmental Science'),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'American Studies', insides_path(:category => params[:category], :department => 'American Studies', :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'African American Studies', insides_path(:category => params[:category], :department => 'African American Studies', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'College of Integrated Sciences', insides_path(:category => params[:category], :department => 'CIS', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'English', insides_path(:category => params[:category], :department => 'English', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Computer Science', insides_path(:category => params[:category], :department => 'Computer Science', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Economics', insides_path(:category => params[:category], :department => 'Economics', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Government', insides_path(:category => params[:category], :department => 'Government', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Sociology', insides_path(:category => params[:category], :department => 'Sociology', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Art Studio', insides_path(:category => params[:category], :department => 'Art Studio', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Math', insides_path(:category => params[:category], :department => 'Math', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Biology', insides_path(:category => params[:category], :department => 'Biology', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Physics', insides_path(:category => params[:category], :department => 'Physics', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Chemistry', insides_path(:category => params[:category], :department => 'Chemistry', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Environmental Science', insides_path(:category => params[:category], :department => 'Environmental Science', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
                   </div>
                 </div>
               </div>
@@ -127,23 +138,12 @@
                     Category
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <%= link_to 'Scholarship', insides_path(:category => 'Scholarship', :semester => params[:semester], :department => params[:department]), :class => 'dropdown-item' %>
-                    <%= link_to 'Internship', insides_path(:category => 'Internship',  :semester => params[:semester], :department => params[:department]), :class => 'dropdown-item'%>
-                    <%= link_to 'Grant', insides_path(:category => 'Grant',  :semester => params[:semester], :department => params[:department]), :class => 'dropdown-item'%>
-                    <%= link_to 'Research', insides_path(:category => 'Research',  :semester => params[:semester], :department => params[:department]), :class => 'dropdown-item'%>
+                    <%= link_to 'Scholarship', insides_path(:category => 'Scholarship', :department => params[:department], :location => params[:location]), :class => 'dropdown-item' %>
+                    <%= link_to 'Fellowship', insides_path(:category => 'Fellowship',  :department => params[:department], :location => params[:location]), :class => 'dropdown-item'%>
+                    <%= link_to 'Entrepreneurship', insides_path(:category => 'Entrepreneurship',  :department => params[:department], :location => params[:location]), :class => 'dropdown-item'%>
+                    <%= link_to 'Grant', insides_path(:category => 'Grant',  :department => params[:department], :location => params[:location]), :class => 'dropdown-item'%>
+                    <%= link_to 'Research', insides_path(:category => 'Research',  :department => params[:department], :location => params[:location]), :class => 'dropdown-item'%>
                   </div>
-                </div>
-              </div>
-
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Semester
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <%= link_to 'Fall', insides_path(:semester => 'Fall', :category => params[:category], :department => params[:department]), :class => 'dropdown-item'%>
-                  <%= link_to 'Winter', insides_path(:semester => 'Winter', :category => params[:category], :department => params[:department]), :class => 'dropdown-item'%>
-                  <%= link_to 'Spring', insides_path(:semester => 'Spring', :category => params[:category], :department => params[:department]), :class => 'dropdown-item'%>
-                  <%= link_to 'Summer', insides_path(:semester => 'Summer', :category => params[:category], :department => params[:department]), :class => 'dropdown-item'%>
                 </div>
               </div>
 
@@ -151,6 +151,10 @@
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Location
                 </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <%= link_to 'On-Campus', insides_path(:category => params[:category], :department => params[:department], :location => 'On-Campus'), :class => 'dropdown-item' %>
+                  <%= link_to 'Off-Campus', insides_path(:category => params[:category],  :department => params[:department], :location => 'Off-Campus'), :class => 'dropdown-item'%>
+                </div>
               </div>
 
               <div class="dropdown m-y-1">
@@ -173,7 +177,6 @@
                 <th><%= link_to 'Deadline', insides_path(:sorting => 'deadline')%></th>
                 <th><%= link_to 'Category', insides_path(:sorting => 'category')%></th>
                 <th><%= link_to 'Department', insides_path(:sorting => 'department')%></th>
-                <th><%= link_to 'Semester', insides_path(:sorting => 'semester')%></th>
                 <th><%= link_to 'Years', insides_path(:sorting => 'year')%></th>
                 <th>Information</th>
                 <th>Favorite</th>
@@ -198,7 +201,6 @@
                     <td><%= inside.deadline %></td>
                     <td><%= inside.category %></td>
                     <td><%= inside.department %></td>
-                    <td><%= inside.semester %></td>
                     <td>
                       <% inside.year_ids.each do |id| %>
                         <%= Year.find(id).year %>
@@ -252,13 +254,11 @@
                         <!-- <th><%= link_to 'Name', insides_path(:sorting => 'name')%></th>
                         <th><%= link_to 'Deadline', insides_path(:sorting => 'deadline')%></th>
                         <th><%= link_to 'Category', insides_path(:sorting => 'category')%></th>
-                        <th><%= link_to 'Department', insides_path(:sorting => 'department')%></th>
-                        <th><%= link_to 'Semester', insides_path(:sorting => 'semester')%></th> -->
+                        <th><%= link_to 'Department', insides_path(:sorting => 'department')%></th>-->
                         <th>Name</th>
                         <th>Deadline</th>
                         <th>Category</th>
                         <th>Department</th>
-                        <th>Semester</th>
                         <th>Unfavorite</th>
                       </tr>
                     </thead>
@@ -276,7 +276,6 @@
                             <td><%= fave.deadline %></td>
                             <td><%= fave.category %></td>
                             <td><%= fave.department %></td>
-                            <td><%= fave.semester %></td>
                             <td>
                               <% if current_user %>
                                 <%= link_to "Unfavorite", favorite_inside_path(id: fave.id, type: "unfavorite"), method: :put, :class => "btn btn-sm btn-link" %>
@@ -313,22 +312,6 @@
                     <p>
                       <strong>Name:</strong>
                       <%= inside.name %>
-                    </p>
-                    <p>
-                      <strong>Deadline:</strong>
-                      <%= inside.deadline %>
-                    </p>
-                    <p>
-                      <strong>Category:</strong>
-                      <%= inside.category %>
-                    </p>
-                    <p>
-                      <strong>Department:</strong>
-                      <%= inside.department %>
-                    </p>
-                    <p>
-                      <strong>Semester:</strong>
-                      <%= inside.semester %>
                     </p>
                     <p>
                       <strong>Description:</strong>
