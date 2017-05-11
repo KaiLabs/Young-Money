@@ -13,7 +13,7 @@
         </li>
       </ul>
       <form class="form-inline">
-        Hello, <strong><%= current_user.name %></strong>!
+        Hello, <strong><%=current_user.name%></strong>!
         <%= link_to "Sign out", signout_path, id: "sign_out", :class => "btn btn-sm btn-link" %>
         <button class="btn btn-sm btn-link my-2 my-sm-0" type="button" data-toggle="modal" data-target=".favorites-modal-lg">
           Favorites
@@ -70,17 +70,10 @@
                     <%= link_to 'American Studies', insides_path(:category => params[:category], :department => 'American Studies', :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
                     <%= link_to 'African American Studies', insides_path(:category => params[:category], :department => 'African American Studies', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
                     <%= link_to 'College of Integrated Sciences', insides_path(:category => params[:category], :department => 'CIS', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Patricelli Center', insides_path(:category => params[:category], :department => 'Patricelli Center', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Career Center', insides_path(:category => params[:category], :department => 'Career Center', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Center for Global Studies', insides_path(:category => params[:category], :department => 'Center For Global Studies', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
                     <%= link_to 'English', insides_path(:category => params[:category], :department => 'English', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Computer Science', insides_path(:category => params[:category], :department => 'Computer Science', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Economics', insides_path(:category => params[:category], :department => 'Economics', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Government', insides_path(:category => params[:category], :department => 'Government', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Sociology', insides_path(:category => params[:category], :department => 'Sociology', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Art Studio', insides_path(:category => params[:category], :department => 'Art Studio', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Math', insides_path(:category => params[:category], :department => 'Math', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Biology', insides_path(:category => params[:category], :department => 'Biology', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Physics', insides_path(:category => params[:category], :department => 'Physics', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Chemistry', insides_path(:category => params[:category], :department => 'Chemistry', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Environmental Science', insides_path(:category => params[:category], :department => 'Environmental Science', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
                   </div>
                 </div>
               </div>

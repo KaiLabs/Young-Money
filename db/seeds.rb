@@ -52,5 +52,42 @@ Inside.create([
   		year_ids:[1, 2, 3],
   		description: "Awarded in recognition of achievement in English to support independent research or creative writing. The fellowships are to be used for work in English outside the Wesleyan course structure. Suitable projects may include, for example, study in an academic program, research, training in research methods, or sustained work on a piece of writing.",
   		location: "On-Campus",
-  		link: "http://www.wesleyan.edu/english/prizes/index.html"}
+  		link: "http://www.wesleyan.edu/english/prizes/index.html"},
+
+  { name: 'Carnegie Endowment For International Peace',
+      deadline: '2017-11-01',
+      category: 'Fellowship',
+      department: 'Center for Global Studies',
+      year_ids:[4],
+      description: "The Junior Fellows Program is designed to provide a substantive work experience for students who have a serious career interest in the area of international affairs.  The Carnegie Endowment offers a one-year work experience in Washington, D.C. to Junior Fellows who provide research assistance to Associates working on the Endowment's research projects such as non-proliferation, democracy building, international economics, China-related issues and Russian/Eurasian affairs.",
+      location: "Off-campus",
+      link: "http://www.wesleyan.edu/cgs/fellowship/nomination.html"},
+
+  { name: 'Gilbert Clee Scholarship',
+      deadline: '2017-11-04',
+      category: 'Fellowship',
+      department: 'Career Center',
+      year_ids:[3],
+      description: "To be eligible, an individual must have demonstrated high standards of leadership, a deep commitment to Wesleyan University. The award also includes career guidance by a representative of McKinsey and Company, an international management consulting firm.",
+      location: "On-Campus",
+      link: "http://www.wesleyan.edu/careercenter/students/wesleyan-grants/clee.html"},
+
+  { name: 'Invisible Men Internship Grants',
+      deadline: '2017-03-05',
+      category: 'Grant',
+      department: 'Career Center',
+      year_ids:[2, 3],
+      description: "The aims of the group are to provide support for one another, to pursue personal growth, to create greater unity among people of color, and to enhance the success of multicultural community.",
+      location: "On-Campus",
+      link: "http://www.wesleyan.edu/careercenter/students/wesleyan-grants/invisible-men.html"},
+
+  { name: 'Davis Projects For Peace',
+      deadline: '2017-01-29',
+      category: 'Entrepreneurship',
+      department: 'Patricelli Center',
+      year_ids:[1, 2, 3, 4],
+      description: "Davis Projects for Peace is an initiative for all students at the Davis United World College Scholars Program partner schools to design grassroots projects for the summer of 2017 -- anywhere in the world -- which promote peace and address the root causes of conflict among parties.",
+      location: "On-Campus",
+      link: "http://www.wesleyan.edu/careercenter/students/wesleyan-grants/invisible-men.html"},
+
   ])
