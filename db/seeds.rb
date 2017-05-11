@@ -60,7 +60,7 @@ Inside.create([
       department: 'Center for Global Studies',
       year_ids:[4],
       description: "The Junior Fellows Program is designed to provide a substantive work experience for students who have a serious career interest in the area of international affairs.  The Carnegie Endowment offers a one-year work experience in Washington, D.C. to Junior Fellows who provide research assistance to Associates working on the Endowment's research projects such as non-proliferation, democracy building, international economics, China-related issues and Russian/Eurasian affairs.",
-      location: "Off-campus",
+      location: "Off-Campus",
       link: "http://www.wesleyan.edu/cgs/fellowship/nomination.html"},
 
   { name: 'Gilbert Clee Scholarship',
@@ -89,5 +89,23 @@ Inside.create([
       description: "Davis Projects for Peace is an initiative for all students at the Davis United World College Scholars Program partner schools to design grassroots projects for the summer of 2017 -- anywhere in the world -- which promote peace and address the root causes of conflict among parties.",
       location: "On-Campus",
       link: "http://www.wesleyan.edu/careercenter/students/wesleyan-grants/invisible-men.html"},
+
+  { name: 'Seed Grant Challenge',
+      deadline: '2017-12-01',
+      category: 'Entrepreneurship',
+      department: 'Patricelli Center',
+      year_ids:[1, 2, 3, 4],
+      description: "Davis Projects for Peace is an initiative for all students at the Davis United World College Scholars Program partner schools to design grassroots projects for the summer of 2017 -- anywhere in the world -- which promote peace and address the root causes of conflict among parties.",
+      location: "On-Campus",
+      link: "http://www.wesleyan.edu/patricelli/grants/seedgrantinfo.html"},
+
+  { name: 'Wesleyan Black Alumni Council Memorial Prize',
+      deadline: '2017-03-27',
+      category: 'Research',
+      department: 'African American Studies',
+      year_ids:[1, 2, 3, 4],
+      description: "Established in 1986 by the Wesleyan Black Alumni Council in memory of deceased black alumni. The prize provides a summer stipend to support a deserving student engaged in independent study or community service related to the concerns of black people.",
+      location: "On-Campus",
+      link: "http://www.wesleyan.edu/inclusion/resources.html"},
 
   ])
