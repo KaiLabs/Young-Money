@@ -160,11 +160,11 @@
           <table class="table table-hover table-sm table-responsive" id="dataTable">
             <thead class="thead-inverse">
               <tr>
-                <th><%= link_to 'Name', insides_path(:sorting => 'name', :category => params[:category], :department => params[:department], :location => params[:location])%></th>
-                <th><%= link_to 'Deadline', insides_path(:sorting => 'deadline', :category => params[:category], :department => params[:department], :location => params[:location])%></th>
-                <th><%= link_to 'Category', insides_path(:sorting => 'category', :category => params[:category], :department => params[:department], :location => params[:location])%></th>
-                <th><%= link_to 'Department', insides_path(:sorting => 'department', :category => params[:category], :department => params[:department], :location => params[:location])%></th>
-                <th><%= link_to 'Years', insides_path(:sorting => 'year', :category => params[:category], :department => params[:department], :location => params[:location])%></th>
+                <th><%= link_to 'Name', insides_path(:sorting => 'name', :category => params[:category], :department => params[:department], :location => params[:location], :finaid => params[:finaid])%></th>
+                <th><%= link_to 'Deadline', insides_path(:sorting => 'deadline', :category => params[:category], :department => params[:department], :location => params[:location], :finaid => params[:finaid])%></th>
+                <th><%= link_to 'Category', insides_path(:sorting => 'category', :category => params[:category], :department => params[:department], :location => params[:location], :finaid => params[:finaid])%></th>
+                <th><%= link_to 'Department', insides_path(:sorting => 'department', :category => params[:category], :department => params[:department], :location => params[:location], :finaid => params[:finaid])%></th>
+                <th><%= link_to 'Years', insides_path(:sorting => 'year', :category => params[:category], :department => params[:department], :location => params[:location], :finaid => params[:finaid])%></th>
                 <th>Information</th>
                 <th>Favorite</th>
                 <% if current_user.admin? %>

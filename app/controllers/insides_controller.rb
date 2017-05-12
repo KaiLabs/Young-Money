@@ -28,15 +28,15 @@ class InsidesController < ApplicationController
     # Sorts all recipes based on the selected sorting column
     if params[:sorting] == 'name'
       #SQL syntax is used here, replace ASC with DESC if you want reverse order
-      @insides = @insides.filter(params[:category], params[:department], params[:location]).order('insides.name ASC').paginate(page: params[:page])
+      @insides = @insides.filter(params[:category], params[:department], params[:location], params[:finaid] ).order('insides.name ASC').paginate(page: params[:page])
     elsif params[:sorting] == 'category'
-      @insides = @insides.filter(params[:category], params[:department], params[:location]).order('insides.category ASC').paginate(page: params[:page])
+      @insides = @insides.filter(params[:category], params[:department], params[:location], params[:finaid]).order('insides.category ASC').paginate(page: params[:page])
 
     elsif params[:sorting] == 'department'
-      @insides = @insides.filter(params[:category], params[:department], params[:location]).order('insides.department ASC').paginate(page: params[:page])
+      @insides = @insides.filter(params[:category], params[:department], params[:location], params[:finaid]).order('insides.department ASC').paginate(page: params[:page])
 
     elsif params[:sorting] == 'deadline'
-      @insides = @insides.filter(params[:category], params[:department], params[:location]).order('insides.deadline ASC').paginate(page: params[:page])
+      @insides = @insides.filter(params[:category], params[:department], params[:location], params[:finaid]).order('insides.deadline ASC').paginate(page: params[:page])
     end
 
   end

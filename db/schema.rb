@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20170425232141) do
     t.date     "deadline"
     t.string   "category"
     t.string   "department"
+    t.string   "finaid"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "link"
     t.string   "location"
     t.string   "description"
-    t.string   "finaid"
   end
 
   create_table "insides_years", id: false, force: :cascade do |t|
