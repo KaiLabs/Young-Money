@@ -18,7 +18,11 @@ a.navbar-brand{
 // }
 
 .container-fluid {
-    .btn-link {
+  .btn-sm {
+    margin: 2px;
+    white-space:normal;
+  }
+  .btn-link {
     color: #900;
     font-family: 'Oswald', sans-serif;
     white-space: normal;
@@ -85,6 +89,10 @@ h1 {
   td {
     text-align: center;
   }
+}
+
+.card {
+  margin: 10px auto;
 }
 
 // button.btn {
