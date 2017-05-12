@@ -6,7 +6,8 @@ class InsidesController < ApplicationController
 
   def index
     @insides = Inside.all
-
+    @insides = Inside.paginate(:page => params[:page])
+    
     @current_user = User.find_by id: session[:user_id]
     # some random conditional
     if @current_user.name == "Mario See" or @current_user.name == "Mario See"

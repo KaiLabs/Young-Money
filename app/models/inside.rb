@@ -1,6 +1,7 @@
 class Inside < ApplicationRecord
   has_and_belongs_to_many :years
 
+  self.per_page = 10
   def self.search(search)
     where("LOWER(name) LIKE ? OR
     LOWER(category) LIKE ? OR

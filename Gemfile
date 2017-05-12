@@ -18,6 +18,9 @@ group :production do
 end
 # Google OAuth
 gem 'omniauth-google-oauth2', '~> 0.2.1'
+
+
+gem 'will_paginate', '~> 3.1.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 #Tether for Bootstrapsource 'https://rails-assets.org'
