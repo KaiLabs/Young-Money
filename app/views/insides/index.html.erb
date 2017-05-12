@@ -31,7 +31,7 @@
           <div class="card">
             <div class="card-block">
               <!--Clear ALL Params-->
-              <%= link_to 'Reset All', insides_path(:search => nil, :category => nil, :department => nil, :location => nil), class: "btn btn-sm btn-warning" %>
+              <%= link_to 'Reset All', insides_path(:search => nil, :category => nil, :department => nil, :location => nil), class: "btn btn-sm btn-outline-danger" %>
               <!--Individual Params-->
               <% if params[:search] != nil %>
                 <%= link_to params[:search], insides_path(:search => nil, :category => params[:category], :department => params[:department], :location => params[:location]), class: "btn btn-sm btn-secondary" %>
@@ -54,12 +54,11 @@
               <%= submit_tag "Go!", :name => nil, class: "btn btn-sm btn-secondary"%>
             </span>
           <% end %>
-
           <div id="accordion" role="tablist" aria-multiselectable="true">
             <div class="card">
               <div class="card-header" role="tab" id="headingOne">
                 <h6 class="mb-0">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style = "color: red">
                     Department
                   </a>
                 </h6>
@@ -69,11 +68,12 @@
                   <div class="btn-group btn-group-sm btn-group-vertical" role="group" aria-label="...">
                     <%= link_to 'American Studies', insides_path(:category => params[:category], :department => 'American Studies', :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
                     <%= link_to 'African American Studies', insides_path(:category => params[:category], :department => 'African American Studies', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'College of Integrated Sciences', insides_path(:category => params[:category], :department => 'CIS', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Patricelli Center', insides_path(:category => params[:category], :department => 'Patricelli Center', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
                     <%= link_to 'Career Center', insides_path(:category => params[:category], :department => 'Career Center', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'College of Integrated Sciences', insides_path(:category => params[:category], :department => 'CIS', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
                     <%= link_to 'Center for Global Studies', insides_path(:category => params[:category], :department => 'Center for Global Studies', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Center for Jewish Studies', insides_path(:category => params[:category], :department => 'Center for Jewish Studies', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
                     <%= link_to 'English', insides_path(:category => params[:category], :department => 'English', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Patricelli Center', insides_path(:category => params[:category], :department => 'Patricelli Center', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
                   </div>
                 </div>
               </div>
@@ -82,7 +82,7 @@
               <div class="card">
                 <div class="card-header" role="tab" id="headingTwo">
                   <h6 class="mb-0">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne" style = "color: red">
                       Eligibility
                     </a>
                   </h6>

@@ -108,4 +108,31 @@ Inside.create([
       location: "On-Campus",
       link: "http://www.wesleyan.edu/inclusion/resources.html"},
 
+  { name: 'Wesleyan University Summer Experience Grant',
+      deadline: '2017-03-01',
+      category: 'Grant',
+      department: 'Career Center',
+      year_ids:[2, 3],
+      description: "Grants are given for all types of summer experiences that are career focused, ranging from the corporate world to non-profit; in the U.S. and abroad.",
+      location: "Off-Campus",
+      link: "http://www.wesleyan.edu/careercenter/students/wesleyan-grants/summerexperiencegrant.html"},
+
+  { name: 'Davenport Study Grant',
+      deadline: '2017-03-01',
+      category: 'Grant',
+      department: 'College of Social Studies',
+      year_ids:[2, 3],
+      description: 'In past years, Davenport Scholarships have been awarded to sophomores and juniors who have “demonstrated intellectual and moral excellence and a concern for public affairs” and “who by their personal qualities and vocational and scholarly intentions give greatest promise of leadership in the public service."',
+      location: "On-Campus",
+      link: "http://www.wesleyan.edu/pac/davenport/"},
+
+  { name: 'The Wesleyan Israel & Jewish Student Life Endowed Summer Grant',
+      deadline: '2017-03-01',
+      category: 'Grant',
+      department: 'Center for Jewish Studies',
+      year_ids:[1, 2, 3, 4],
+      description: 'Wesleyan Israel and Jewish Student Life Summer Grants assist students in financing summer experiences related to Jewish and Israel studies (Israeli history and culture) and/or contemporary Jewish life. Funds can be used for unpaid internships, educational experiences, transportation, tuition, rent, program fees, etc. Upon return, the awarded student(s) will be asked to share their experiences with the rest of the Wesleyan community in a meaningful way.',
+      location: "Off-Campus",
+      link: "http://www.wesleyan.edu/careercenter/students/wesleyan-grants/wijs.html"},
+
   ])

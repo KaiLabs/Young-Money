@@ -1,3 +1,13 @@
 // Place all the styles related to the Insides controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+button.btn{
+  color: red;
+}
+a.btn{
+  color:red;
+}
+a.btn:hover {
+  background-color: inherit;
+  color:inherit;
+}
