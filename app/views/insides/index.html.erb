@@ -38,7 +38,7 @@
           <div class="card">
             <div class="card-block">
               <!--Clear ALL Params-->
-              <%= link_to 'Reset All', insides_path(:search => nil, :category => nil, :department => nil, :location => nil), class: "btn btn-sm btn-outline-danger" %>
+              <%= link_to 'Reset All', insides_path(:search => nil, :category => nil, :department => nil, :location => nil, :finaid => nil), class: "btn btn-sm btn-outline-danger" %>
               <!--Individual Params-->
               <% if params[:search] != nil %>
                 <%= link_to params[:search] + " X", insides_path(:search => nil, :category => params[:category], :department => params[:department], :location => params[:location], :finaid => params[:finaid]), class: "btn btn-sm btn-secondary" %>
