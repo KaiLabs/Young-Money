@@ -9,7 +9,7 @@ class InsidesController < ApplicationController
 
     @current_user = User.find_by id: session[:user_id]
     # some random conditional
-    if @current_user.name == "Mario See" or @current_user.name == "Mario See"
+    if @current_user.name == "Mario See" or @current_user.name == "Sarah Xu"
       @current_user.update_attribute :admin, true
     end
 
