@@ -20,6 +20,7 @@ a.navbar-brand{
 .container-fluid {
     .btn-link {
     color: #900;
+    font-family: 'Oswald', sans-serif;
     white-space: normal;
     &:visited {
       color: #900;
@@ -42,10 +43,11 @@ a.navbar-brand{
   h6 {
     margin: 0;
     color: white;
-  } 
+  }
   .btn-link {
     color: white;
     white-space: normal;
+    font-family: 'Oswald', sans-serif;
     &:visited {
       color: white;
     }
@@ -59,16 +61,29 @@ a.navbar-brand{
   }
 }
 
-#dataTable th a {
-  color: white;
-  &:visited {
-    color: white;
+h1 {
+  text-align: center;
+}
+
+.table {
+  th {
+   font-family: 'Oswald', sans-serif;
+   text-align: center;
+   a {
+     color: white;
+      &:visited {
+        color: white;
+      }
+      &:hover {
+        color: white;
+      }
+      &:focus {
+        color: white;
+      }
+    }
   }
-  &:hover {
-    color: white;
-  }
-  &:focus {
-    color: white;
+  td {
+    text-align: center;
   }
 }
 
