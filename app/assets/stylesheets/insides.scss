@@ -1,13 +1,65 @@
 // Place all the styles related to the Insides controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-button.btn{
-  color: red;
+
+a.navbar-brand{
+  color: white;
+  &:visited {
+    color: white;
+  }
+  &:hover {
+    color: white;
+  }
 }
-a.btn, a.navbar-brand{
-  color:red;
+
+// a.btn:hover, a.navbar-brand:hover, a.nav-link, a:visited {
+//   background-color: inherit;
+//   color:inherit;
+// }
+
+.container-fluid {
+    .btn-link {
+    color: #900;
+    &:visited {
+      color: #900;
+    }
+
+    &:hover {
+      color: #900;
+      background-color: inherit;
+    }
+  }
 }
-a.btn:hover, a.navbar-brand:hover, a.nav-link {
-  background-color: inherit;
-  color:inherit;
+
+.navbar {
+  h6 {
+    margin: 0;
+    color: white;
+  }
+  .btn-link {
+    color: white;
+    &:visited {
+      color: white;
+    }
+    &:hover {
+      color: white;
+    }
+    &:focus {
+      color: white;
+    }
+  }
 }
+
+#dataTable th a {
+  color: white;
+  &:visited {
+    color: white;
+  }
+  &:hover {
+    color: white;
+  }
+}
+
+// button.btn {
+//   color: #900;
+// }
