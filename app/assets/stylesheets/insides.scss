@@ -20,13 +20,16 @@ a.navbar-brand{
 .container-fluid {
     .btn-link {
     color: #900;
+    white-space: normal;
     &:visited {
       color: #900;
+      white-space: normal;
     }
 
     &:hover {
       color: #900;
       background-color: inherit;
+      white-space: normal;
     }
   }
 }
@@ -38,11 +41,13 @@ a.navbar-brand{
   }
   .btn-link {
     color: white;
+    white-space: normal;
     &:visited {
       color: white;
     }
     &:hover {
-      color: white;
+      color: lightgrey;
+      text-decoration: none;
     }
     &:focus {
       color: white;
