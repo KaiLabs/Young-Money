@@ -41,16 +41,19 @@
               <%= link_to 'Reset All', insides_path(:search => nil, :category => nil, :department => nil, :location => nil), class: "btn btn-sm btn-outline-danger" %>
               <!--Individual Params-->
               <% if params[:search] != nil %>
-                <%= link_to params[:search], insides_path(:search => nil, :category => params[:category], :department => params[:department], :location => params[:location]), class: "btn btn-sm btn-secondary" %>
+                <%= link_to params[:search] + " X", insides_path(:search => nil, :category => params[:category], :department => params[:department], :location => params[:location], :finaid => params[:finaid]), class: "btn btn-sm btn-secondary" %>
               <% end %>
               <% if params[:category] != nil %>
-                <%= link_to params[:category] + " X", insides_path(:search => params[:search], :category => nil, :department => params[:department], :location => params[:location]), class: "btn btn-sm btn-secondary" %>
+                <%= link_to params[:category] + " X", insides_path(:search => params[:search], :category => nil, :department => params[:department], :location => params[:location], :finaid => params[:finaid]), class: "btn btn-sm btn-secondary" %>
               <% end %>
               <% if params[:department] != nil %>
-                <%= link_to params[:department] + " X", insides_path(:search => params[:search], :category => params[:category], :department => nil, :location => params[:location]), class: "btn btn-sm btn-secondary" %>
+                <%= link_to params[:department] + " X", insides_path(:search => params[:search], :category => params[:category], :department => nil, :location => params[:location], :finaid => params[:finaid]), class: "btn btn-sm btn-secondary" %>
               <% end %>
               <% if params[:location] != nil %>
-                <%= link_to params[:location] + " X", insides_path(:search => params[:search], :category => params[:category], :department => params[:department], :location => nil), class: "btn btn-sm btn-secondary" %>
+                <%= link_to params[:location] + " X", insides_path(:search => params[:search], :category => params[:category], :department => params[:department], :location => nil, :finaid => params[:finaid]), class: "btn btn-sm btn-secondary" %>
+              <% end %>
+              <% if params[:finaid] != nil %>
+                <%= link_to params[:finaid] + " X", insides_path(:search => params[:search], :category => params[:category], :department => params[:department], :location => params[:location], :finaid => nil), class: "btn btn-sm btn-secondary" %>
               <% end %>
             </div>
           </div>
@@ -74,14 +77,14 @@
               <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                 <div class="card-block">
                   <div class="btn-group btn-group-sm btn-group-vertical" role="group" aria-label="...">
-                    <%= link_to 'American Studies', insides_path(:category => params[:category], :department => 'American Studies', :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'African American Studies', insides_path(:category => params[:category], :department => 'African American Studies', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Career Center', insides_path(:category => params[:category], :department => 'Career Center', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'College of Integrated Sciences', insides_path(:category => params[:category], :department => 'CIS', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Center for Global Studies', insides_path(:category => params[:category], :department => 'Center for Global Studies', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Center for Jewish Studies', insides_path(:category => params[:category], :department => 'Center for Jewish Studies', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'English', insides_path(:category => params[:category], :department => 'English', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Patricelli Center', insides_path(:category => params[:category], :department => 'Patricelli Center', :location => params[:location]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'African American Studies', insides_path(:category => params[:category], :department => 'African American Studies', :location => params[:location], :finaid => params[:finaid]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'American Studies', insides_path(:category => params[:category], :department => 'American Studies', :location => params[:location], :finaid => params[:finaid]), :class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Career Center', insides_path(:category => params[:category], :department => 'Career Center', :location => params[:location], :finaid => params[:finaid]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'College of Integrated Sciences', insides_path(:category => params[:category], :department => 'CIS', :location => params[:location], :finaid => params[:finaid]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Center for Global Studies', insides_path(:category => params[:category], :department => 'Center for Global Studies', :location => params[:location], :finaid => params[:finaid]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Center for Jewish Studies', insides_path(:category => params[:category], :department => 'Center for Jewish Studies', :location => params[:location], :finaid => params[:finaid]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'English', insides_path(:category => params[:category], :department => 'English', :location => params[:location], :finaid => params[:finaid]),:class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Patricelli Center', insides_path(:category => params[:category], :department => 'Patricelli Center', :location => params[:location], :finaid => params[:finaid]),:class => 'btn btn-sm btn-link text-left'%>
                   </div>
                 </div>
               </div>
@@ -98,11 +101,11 @@
               <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
                 <div class="card-block">
                   <div class="btn-group btn-group-sm btn-group-vertical" role="group" aria-label="...">
-                    <%= link_to 'Scholarship', insides_path(:category => 'Scholarship', :department => params[:department], :location => params[:location]), :class => 'btn btn-sm btn-link text-left' %>
-                    <%= link_to 'Fellowship', insides_path(:category => 'Fellowship',  :department => params[:department], :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Entrepreneurship', insides_path(:category => 'Entrepreneurship',  :department => params[:department], :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Grant', insides_path(:category => 'Grant',  :department => params[:department], :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
-                    <%= link_to 'Research', insides_path(:category => 'Research',  :department => params[:department], :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Scholarship', insides_path(:category => 'Scholarship', :department => params[:department], :location => params[:location], :finaid => params[:finaid]), :class => 'btn btn-sm btn-link text-left' %>
+                    <%= link_to 'Fellowship', insides_path(:category => 'Fellowship',  :department => params[:department], :location => params[:location], :finaid => params[:finaid]), :class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Entrepreneurship', insides_path(:category => 'Entrepreneurship',  :department => params[:department], :location => params[:location], :finaid => params[:finaid]), :class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Grant', insides_path(:category => 'Grant',  :department => params[:department], :location => params[:location], :finaid => params[:finaid]), :class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Research', insides_path(:category => 'Research',  :department => params[:department], :location => params[:location], :finaid => params[:finaid]), :class => 'btn btn-sm btn-link text-left'%>
                   </div>
                 </div>
               </div>
@@ -119,8 +122,8 @@
               <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
                 <div class="card-block">
                   <div class="btn-group btn-group-sm btn-group-vertical" role="group" aria-label="...">
-                    <%= link_to 'On-Campus', insides_path(:category => params[:category], :department => params[:department], :location => 'On-Campus'), :class => 'btn btn-sm btn-link text-left' %>
-                    <%= link_to 'Off-Campus', insides_path(:category => params[:category],  :department => params[:department], :location => 'Off-Campus'), :class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'On-Campus', insides_path(:category => params[:category], :department => params[:department], :location => 'On-Campus', :finaid => params[:finaid]), :class => 'btn btn-sm btn-link text-left' %>
+                    <%= link_to 'Off-Campus', insides_path(:category => params[:category],  :department => params[:department], :location => 'Off-Campus', :finaid => params[:finaid]), :class => 'btn btn-sm btn-link text-left'%>
                   </div>
                 </div>
               </div>
@@ -137,7 +140,8 @@
               <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="card-block">
                   <div class="btn-group btn-group-sm btn-group-vertical" role="group" aria-label="...">
-                    <!-- Buttons for years -->
+                    <%= link_to 'Financial aid required', insides_path(:category => params[:category], :department => params[:department], :location => params[:location], :finaid=>'Aid required'), :class => 'btn btn-sm btn-link text-left' %>
+                    <%= link_to 'Financial aid not required', insides_path(:category => params[:category],  :department => params[:department], :location => params[:location], :finaid=>'Aid not required'), :class => 'btn btn-sm btn-link text-left'%>
                   </div>
                 </div>
               </div>
@@ -305,6 +309,10 @@
                     <p>
                       <strong>Description:</strong>
                       <%= inside.description %>
+                    </p>
+                    <p>
+                      <strong>Financial Aid Eligibility Required:</strong>
+                      <%= inside.finaid %>
                     </p>
                     <p>
                       <strong>Link:</strong>

@@ -20,8 +20,8 @@ class InsidesController < ApplicationController
 
     ### FILTERING ###
     #implementing filter
-    if params[:category] or params[:department] or params[:location]
-      @insides = Inside.filter(params[:category], params[:department], params[:location]).paginate(page: params[:page])
+    if params[:category] or params[:department] or params[:location] or params[:finaid]
+      @insides = Inside.filter(params[:category], params[:department], params[:location], params[:finaid]).paginate(page: params[:page])
     end
 
     ###    SORTING   ###
@@ -120,7 +120,7 @@ class InsidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inside_params
-      params.require(:inside).permit(:name, :deadline, :category, :link, :year, :description , :department, :location, year_ids:[])
+      params.require(:inside).permit(:name, :deadline, :category, :link, :year, :description , :department, :location, :finaid, year_ids:[])
     end
 
 end

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170425232141) do
     t.string   "link"
     t.string   "location"
     t.string   "description"
+    t.string   "finaid"
   end
 
   create_table "insides_years", id: false, force: :cascade do |t|

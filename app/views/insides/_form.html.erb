@@ -42,6 +42,11 @@
   </div>
 
   <div class="field">
+    <%= f.label "Financial aid eligibility required?" %>
+    <%= f.select :finaid, ['Aid required', 'Aid not required'],:required => true  %>
+  </div>
+
+  <div class="field">
     <%= f.label "Years Eligible:" %><br />
     <%= f.collection_check_boxes :year_ids, Year.all, :id, :year do |b| %>
       <div class="collection-check-box">

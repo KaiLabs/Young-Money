@@ -9,6 +9,7 @@ class CreateInsides < ActiveRecord::Migration[5.0]
       t.string :semester
       t.string :link
       t.string :description
+      t.string :finaid
 
       t.timestamps
     end

@@ -11,14 +11,22 @@ class Inside < ApplicationRecord
   end
 
   #define filter
-  def self.filter(category = nil, department = nil, location = nil)
+  def self.filter(category = nil, department = nil, location = nil, finaid = nil)
+    return where(category: category, department: department, location: location, finaid: finaid) if category && department && location && finaid
+    return where(finaid: finaid, department: department, location: location) if finaid && department && location
+    return where(category: category, finaid: finaid, location: location) if category && finaid && location
+    return where(category: category, department: department, finaid: finaid) if category && department && finaid
     return where(category: category, department: department, location: location) if category && department && location
     return where(category: category, location: location) if category && location
     return where(department: department, location: location) if department && location
     return where(category: category, department: department) if category && department
+    return where(finaid: finaid, category: category) if finaid && category
+    return where(finaid: finaid, location: location) if finaid && location
+    return where(finaid: finaid, department: department) if finaid && department
     return where(category: category) if category
     return where(department: department) if department
     return where(location: location) if location
+    return where(finaid: finaid) if finaid
     all
   end
 
