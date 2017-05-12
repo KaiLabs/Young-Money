@@ -25,8 +25,12 @@ a.navbar-brand{
       color: #900;
       white-space: normal;
     }
-
     &:hover {
+      color: #900;
+      background-color: inherit;
+      white-space: normal;
+    }
+    &:focus {
       color: #900;
       background-color: inherit;
       white-space: normal;
@@ -38,7 +42,7 @@ a.navbar-brand{
   h6 {
     margin: 0;
     color: white;
-  }
+  } 
   .btn-link {
     color: white;
     white-space: normal;
@@ -61,6 +65,9 @@ a.navbar-brand{
     color: white;
   }
   &:hover {
+    color: white;
+  }
+  &:focus {
     color: white;
   }
 }

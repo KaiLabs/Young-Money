@@ -49,6 +49,7 @@
               <% end %>
             </div>
           </div>
+
           <!--Search-->
           <%= form_tag(insides_path, :method => "get", class:"input-group", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search for...", class:"form-control" %>
@@ -81,76 +82,63 @@
               </div>
             </div>
 
-              <div class="card">
-                <div class="card-header" role="tab" id="headingTwo">
-                  <h6 class="mb-0">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseOne" style = "color: #900">
-                      Eligibility
-                    </a>
-                  </h6>
-                </div>
-                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                  <div class="card-block">
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" value="" >
-                          <label>GPA</label>
-                        <input class="form-control" type="number" />
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" value="" >
-                          <label>Major</label>
-                        <input class="form-control" type="text" />
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" value="" >
-                          <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-                            <option selected>Class Year</option>
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                          </select>
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" value="" >
-                          <label>US Citizen</label>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="dropdown m-y-1">
-                <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="card">
+              <div class="card-header" role="tab" id="headingThree">
+                <h6 class="mb-0">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree" style = "color: #900">
                     Category
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <%= link_to 'Scholarship', insides_path(:category => 'Scholarship', :department => params[:department], :location => params[:location]), :class => 'dropdown-item' %>
-                    <%= link_to 'Fellowship', insides_path(:category => 'Fellowship',  :department => params[:department], :location => params[:location]), :class => 'dropdown-item'%>
-                    <%= link_to 'Entrepreneurship', insides_path(:category => 'Entrepreneurship',  :department => params[:department], :location => params[:location]), :class => 'dropdown-item'%>
-                    <%= link_to 'Grant', insides_path(:category => 'Grant',  :department => params[:department], :location => params[:location]), :class => 'dropdown-item'%>
-                    <%= link_to 'Research', insides_path(:category => 'Research',  :department => params[:department], :location => params[:location]), :class => 'dropdown-item'%>
+                  </a>
+                </h6>
+              </div>
+              <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="card-block">
+                  <div class="btn-group btn-group-sm btn-group-vertical" role="group" aria-label="...">
+                    <%= link_to 'Scholarship', insides_path(:category => 'Scholarship', :department => params[:department], :location => params[:location]), :class => 'btn btn-sm btn-link text-left' %>
+                    <%= link_to 'Fellowship', insides_path(:category => 'Fellowship',  :department => params[:department], :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Entrepreneurship', insides_path(:category => 'Entrepreneurship',  :department => params[:department], :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Grant', insides_path(:category => 'Grant',  :department => params[:department], :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
+                    <%= link_to 'Research', insides_path(:category => 'Research',  :department => params[:department], :location => params[:location]), :class => 'btn btn-sm btn-link text-left'%>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <div class="dropdown m-y-1">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Location
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <%= link_to 'On-Campus', insides_path(:category => params[:category], :department => params[:department], :location => 'On-Campus'), :class => 'dropdown-item' %>
-                  <%= link_to 'Off-Campus', insides_path(:category => params[:category],  :department => params[:department], :location => 'Off-Campus'), :class => 'dropdown-item'%>
+            <div class="card">
+              <div class="card-header" role="tab" id="headingFour">
+                <h6 class="mb-0">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour" style = "color: #900">
+                    Location
+                  </a>
+                </h6>
+              </div>
+              <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                <div class="card-block">
+                  <div class="btn-group btn-group-sm btn-group-vertical" role="group" aria-label="...">
+                    <%= link_to 'On-Campus', insides_path(:category => params[:category], :department => params[:department], :location => 'On-Campus'), :class => 'btn btn-sm btn-link text-left' %>
+                    <%= link_to 'Off-Campus', insides_path(:category => params[:category],  :department => params[:department], :location => 'Off-Campus'), :class => 'btn btn-sm btn-link text-left'%>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header" role="tab" id="headingTwo">
+                <h6 class="mb-0">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" style = "color: #900">
+                    Eligibility
+                  </a>
+                </h6>
+              </div>
+              <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="card-block">
+                  <div class="btn-group btn-group-sm btn-group-vertical" role="group" aria-label="...">
+                    <!-- Buttons for years -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
             </div>
           </div>
 
@@ -211,7 +199,7 @@
                       <td>
                         <div class="btn-group btn-group-sm btn-group-vertical" role="group" aria-label="...">
                           <%= link_to 'Edit', edit_inside_path(inside), :class => "btn btn-link btn-sm"  %>
-                          <%= link_to 'Destroy', inside, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-link btn-sm"  %>
+                          <%= link_to 'Delete', inside, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-link btn-sm"  %>
                         </div>
                       </td>
                     <% end %>
