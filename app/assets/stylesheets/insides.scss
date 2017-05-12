@@ -4,10 +4,10 @@
 button.btn{
   color: red;
 }
-a.btn{
+a.btn, a.navbar-brand{
   color:red;
 }
-a.btn:hover {
+a.btn:hover, a.navbar-brand:hover, a.nav-link {
   background-color: inherit;
   color:inherit;
 }
