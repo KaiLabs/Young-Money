@@ -5,9 +5,8 @@ class InsidesController < ApplicationController
   # GET /insides.json
 
   def index
-    @insides = Inside.all
     @insides = Inside.paginate(:page => params[:page])
-    
+
     @current_user = User.find_by id: session[:user_id]
     # some random conditional
     if @current_user.name == "Mario See" or @current_user.name == "Mario See"
@@ -16,29 +15,28 @@ class InsidesController < ApplicationController
 
     ### SEARCHING ###
     if params[:search]
-      @insides = Inside.search(params[:search], )
+      @insides = Inside.search(params[:search], ).paginate(page: params[:page])
     end
 
     ### FILTERING ###
     #implementing filter
     if params[:category] or params[:department] or params[:location]
-      @insides = Inside.filter(params[:category], params[:department], params[:location])
+      @insides = Inside.filter(params[:category], params[:department], params[:location]).paginate(page: params[:page])
     end
 
     ###    SORTING   ###
     # Sorts all recipes based on the selected sorting column
     if params[:sorting] == 'name'
       #SQL syntax is used here, replace ASC with DESC if you want reverse order
-      @insides = @insides.order('insides.name ASC')
-
+      @insides = @insides.filter(params[:category], params[:department], params[:location]).order('insides.name ASC').paginate(page: params[:page])
     elsif params[:sorting] == 'category'
-      @insides = @insides.order('insides.category ASC')
+      @insides = @insides.filter(params[:category], params[:department], params[:location]).order('insides.category ASC').paginate(page: params[:page])
 
     elsif params[:sorting] == 'department'
-      @insides = @insides.order('insides.department ASC')
+      @insides = @insides.filter(params[:category], params[:department], params[:location]).order('insides.department ASC').paginate(page: params[:page])
 
     elsif params[:sorting] == 'deadline'
-      @insides = @insides.order('insides.deadline ASC')
+      @insides = @insides.filter(params[:category], params[:department], params[:location]).order('insides.deadline ASC').paginate(page: params[:page])
     end
 
   end
