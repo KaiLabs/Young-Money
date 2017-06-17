@@ -12,7 +12,7 @@ What things you need to install the software and how to install them
 
 [RVM](https://rvm.io/), Ruby Version Manager, is a great tool to download, install, and ensure Ruby in your machine is up to date.
 
-To check your version of Ruby, run: 
+To check your version of Ruby,
 ```
 ruby -v
 ```
@@ -22,12 +22,12 @@ This project was built on:
 ruby 2.4.1
 ```
 
-To install rails, run:
+To install rails,
 ```
 gem install rails
 ```
 
-To check your version of Rails, run:
+To check your version of Rails,
 ```
 rails -v
 ```
@@ -41,29 +41,28 @@ Great! Everything's set up.
 
 ### Installing
 
-* Clone the project onto your desired location
-* Navigate into that directory
+Clone the project onto your desired location
 
+Navigate into that directory
 ```
 cd Young-Money
 ```
 
-Run 
+To download and install the necessary gems for this project (listed in the Gemfile),
 ```
 bundle install
 ```
-to download and install the necessary gems for this project (listed in the Gemfile).
 
-Run
+To run the necessary database migrations done,
 ```
 rake db:migrate
 ```
-to get the necessary database migrations done.
 
-Run
+To run locally,
 ```
 rails server
 ```
+
 and the project will be live at http://localhost:3000/!
 
 ## Deployment
