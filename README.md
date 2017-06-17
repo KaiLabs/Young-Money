@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-[RVM]https://rvm.io/, Ruby Version Manager, is a great tool to download, install, and ensure Ruby in your machine is up to date.
+[RVM](https://rvm.io/), Ruby Version Manager, is a great tool to download, install, and ensure Ruby in your machine is up to date.
 
 To check your version of Ruby, run: 
 ```
@@ -78,7 +78,7 @@ This project was deployed on Heroku.
 ## Authors
 
 Engineers
-* [Mario See]http://github.com/mariocsee
+* [Mario See](http://github.com/mariocsee)
 * Hudson Harriman-Smith
 
 Designer
